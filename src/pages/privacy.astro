@@ -1,0 +1,273 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// DRAFT — not legal advice. The plugin and licensing sections are drafted from
+// the actual code (LicenseManager, TrialGuard, cf-worker.js); the boilerplate
+// sections below them are standard text and still need review by a lawyer or
+// the IHK before this is relied upon.
+//
+// TODO(hosting): "Website hosting" names Cloudflare. The GitHub Actions
+// workflow currently deploys to GitHub Pages. Name whichever provider actually
+// serves radical-process.com — and update it if the site moves.
+
+const lastUpdated = '12 September 2026';
+---
+
+<Layout title="Privacy Policy — Radical Process">
+
+  <!-- ── HEADER ──────────────────────────────────────────────────── -->
+  <header class="max-w-4xl mx-auto px-6 pt-14 pb-4">
+    <p class="text-xs uppercase text-gray-500">
+      <a href="/" class="tracking-[0.45em] hover:text-gray-300 transition-colors">Radical Process</a>
+      <span class="text-gray-600 tracking-[0.25em]">
+        &nbsp;—&nbsp; Unapologetically niche, unapologetically deep
+      </span>
+    </p>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20">
+
+    <section class="pt-10 mb-16">
+      <h1 class="text-5xl sm:text-6xl font-black tracking-tighter mb-3">Privacy</h1>
+      <p class="text-gray-500 text-sm tracking-wide uppercase">
+        Datenschutzerklärung &nbsp;·&nbsp; Last updated {lastUpdated}
+      </p>
+    </section>
+
+    <div class="max-w-2xl space-y-14">
+
+      <!-- ── SUMMARY ──────────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">In short</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Our plugins contain no telemetry, no analytics and no usage tracking. The only network call
+          a plugin ever makes is licence activation, and only when you start it yourself. Our licence
+          server stores nothing — no database, no logs of your data. This site sets no cookies and runs
+          no analytics.
+        </p>
+      </section>
+
+      <!-- ── CONTROLLER ───────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Controller
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          The controller responsible for the processing described here, within the meaning of Art. 4(7)
+          GDPR, is:
+        </p>
+        <address class="text-gray-300 leading-relaxed not-italic mb-4">
+          Radical Process<br />
+          Lange Heide 3<br />
+          51069 Cologne<br />
+          Germany
+        </address>
+        <p class="text-gray-300 leading-relaxed">
+          Contact: support at radical-process.com
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed mt-4">
+          We are not required to appoint a data protection officer and have not appointed one.
+        </p>
+      </section>
+
+      <!-- ── WEBSITE HOSTING ──────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          This website
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          This site is a static site. It sets no cookies, embeds no third-party fonts or scripts, and
+          runs no analytics or tracking of any kind.
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          It is hosted by Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. As a
+          technical necessity, Cloudflare processes the connection data of each request — including
+          your IP address, the page requested, the time of the request, and the browser and operating
+          system reported by your device — in order to deliver the page and to protect the service
+          against attacks.
+        </p>
+        <p class="text-gray-300 leading-relaxed">
+          Legal basis: Art. 6(1)(f) GDPR — our legitimate interest in a secure and reliably delivered
+          website. Transfers to the USA are covered by the EU Commission's adequacy decision for the
+          EU–US Data Privacy Framework and by standard contractual clauses.
+        </p>
+      </section>
+
+      <!-- ── PLUGIN: NO PHONE HOME ────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          The plugin does not phone home
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          SGD contains exactly one network call: license activation, and only when you actively start
+          it by entering a license key or starting a trial. There is no telemetry, no analytics, no
+          usage tracking, no update check and no other server contact of any kind. Once activated, the
+          plugin verifies your license <strong class="font-medium text-white">offline</strong> and never
+          contacts us again.
+        </p>
+      </section>
+
+      <!-- ── LICENCE ACTIVATION ───────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Licence activation
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          When you enter a license key, the plugin sends to
+          <code class="text-gray-400 text-sm">https://license.radical-process.com/activate</code>:
+        </p>
+        <ul class="text-gray-300 leading-relaxed mb-4 space-y-1 list-disc pl-5 marker:text-gray-600">
+          <li>the license key you entered,</li>
+          <li>the product identifier of the plugin (e.g. <code class="text-gray-400 text-sm">SGD</code>).</li>
+        </ul>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Our server passes the license key to Lemon Squeezy for validation and receives back the name
+          and email address you gave when purchasing. It uses these to generate a cryptographically
+          signed licence file, which it returns to the plugin.
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          <strong class="font-medium text-white">The server stores nothing.</strong> No database, no logs
+          of your data — the name and email pass through the request and are not retained by us. As a
+          technical necessity, our hosting provider Cloudflare processes the connection metadata of the
+          request (including your IP address) in order to deliver it and to protect against attacks.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Legal basis: Art. 6(1)(b) GDPR (performance of the licence agreement).
+        </p>
+      </section>
+
+      <!-- ── FREE TRIAL ───────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Free trial
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          When you start the trial, the plugin sends only the product identifier to
+          <code class="text-gray-400 text-sm">https://license.radical-process.com/trial</code>.
+          <strong class="font-medium text-white">No personal data is transmitted</strong> — no name, no
+          email address, no registration. The server returns a signed trial licence file with an expiry
+          date. The same note about Cloudflare connection metadata applies.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Legal basis: Art. 6(1)(b) GDPR.
+        </p>
+      </section>
+
+      <!-- ── LOCAL STORAGE ────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Data stored on your computer
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          <strong class="font-medium text-white">Licence file.</strong> After activation, the signed
+          licence file is stored on your computer, in the standard application-support location for your
+          operating system. It contains the name and email address from your purchase, the product name
+          and, for trials, the expiry date. It is displayed in the plugin as “Licensed to …”.
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          <strong class="font-medium text-white">Trial markers.</strong> So that the trial period cannot
+          be reset simply by deleting a file, the signed trial licence is written to more than one
+          location on your system, and a missing copy is restored when the plugin runs. These markers
+          contain the trial expiry date and a placeholder name and email address (“Trial User”,
+          <code class="text-gray-400 text-sm">trial@user</code>) — no personal data of yours, and nothing
+          that identifies you or your computer.
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          <strong class="font-medium text-white">These trial markers are deliberately not removed when
+          you uninstall SGD</strong>, because otherwise reinstalling would grant an unlimited number of
+          trial periods. If you want them removed from your system, write to support at
+          radical-process.com and we will send you removal instructions.
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          This storage on your device is strictly necessary to provide the licence or trial you have
+          expressly requested (§ 25(2) No. 2 TDDDG); it is not used for analysis or tracking, contains no
+          personal data in the case of a trial, and is never transmitted to us.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Retention: everything described above remains on your computer until you delete it. We hold no
+          copy.
+        </p>
+      </section>
+
+      <!-- ── PURCHASE ─────────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Purchase
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          Purchases are handled by Lemon Squeezy as Merchant of Record. Your payment data and billing
+          details are processed by Lemon Squeezy, not by us; we receive only the name and email address
+          associated with a licence key, and only at the moment of activation. See Lemon Squeezy's
+          privacy policy:
+          <a href="https://www.lemonsqueezy.com/privacy" rel="noopener noreferrer" target="_blank"
+             class="text-gray-400 underline underline-offset-4 decoration-gray-700 hover:text-white transition-colors">lemonsqueezy.com/privacy</a>.
+        </p>
+      </section>
+
+      <!-- ── YOUR RIGHTS ──────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Your rights
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Under the GDPR you have the right to obtain confirmation of whether we process personal data
+          about you and, if so, access to it (Art. 15); to have inaccurate data corrected (Art. 16); to
+          have data erased (Art. 17); to have processing restricted (Art. 18); to receive your data in a
+          portable format (Art. 20); and to object to processing based on our legitimate interests
+          (Art. 21). Where processing rests on consent, you may withdraw that consent at any time with
+          effect for the future.
+        </p>
+        <p class="text-gray-300 leading-relaxed">
+          To exercise any of these, write to support at radical-process.com. Please note that, as
+          described above, we do not operate a database of customer data: outside the moment of licence
+          activation we hold no personal data about you, so in most cases a request for access or erasure
+          will be answered by telling you exactly that.
+        </p>
+      </section>
+
+      <!-- ── SUPERVISORY AUTHORITY ────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Right to lodge a complaint
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          You have the right to lodge a complaint with a supervisory authority (Art. 77 GDPR), in
+          particular in the member state of your residence, place of work, or of the alleged
+          infringement. The authority responsible for us is:
+        </p>
+        <address class="text-gray-300 leading-relaxed not-italic">
+          Landesbeauftragte für Datenschutz und Informationsfreiheit<br />
+          Nordrhein-Westfalen<br />
+          Kavalleriestraße 2–4<br />
+          40213 Düsseldorf<br />
+          Germany<br />
+          <a href="https://www.ldi.nrw.de" rel="noopener noreferrer" target="_blank"
+             class="text-gray-400 underline underline-offset-4 decoration-gray-700 hover:text-white transition-colors">ldi.nrw.de</a>
+        </address>
+      </section>
+
+      <!-- ── CHANGES ──────────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Changes to this policy
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          We update this policy when the products or the services behind them change — for example if a
+          plugin ever gains a feature that contacts a server. The date at the top of this page always
+          reflects the current version.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-gray-900 text-center text-gray-600 text-xs py-10 tracking-widest uppercase">
+    <p>
+      <a href="/" class="hover:text-gray-400 transition-colors">Home</a>
+      <span class="text-gray-800 mx-2">·</span>
+      <a href="/about" class="hover:text-gray-400 transition-colors">About</a>
+    </p>
+    <p class="mt-3">&copy; 2026 Radical Process. All rights reserved.</p>
+  </footer>
+
+</Layout>
