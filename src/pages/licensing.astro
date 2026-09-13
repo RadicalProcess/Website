@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// TODO(store): the two "Buy a licence" links point at "#" until the store URL
+// exists. Point them at the Lemon Squeezy checkout (or the product page that
+// leads to it) once it is live — the same destination the plugin's Buy button
+// opens.
+---
+
+<Layout title="Licensing — Radical Process">
+
+  <!-- ── HEADER ──────────────────────────────────────────────────── -->
+  <header class="max-w-4xl mx-auto px-6 pt-14 pb-4">
+    <div class="flex items-center gap-4">
+      <a href="/" class="shrink-0"><img src="/img/logo.png" alt="Radical Process" class="h-9 w-auto" /></a>
+      <p class="text-xs uppercase text-gray-500">
+        <a href="/" class="tracking-[0.45em] text-gray-200 hover:text-white transition-colors">Radical Process</a>
+        <span class="text-gray-500 tracking-[0.25em]">
+          &nbsp;—&nbsp; Unapologetically niche, unapologetically deep
+        </span>
+      </p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20">
+
+    <section class="pt-10 mb-16">
+      <h1 class="text-5xl sm:text-6xl font-black tracking-tighter mb-3">Licensing</h1>
+      <p class="text-gray-500 text-sm tracking-wide uppercase">
+        Try for 14 days &nbsp;·&nbsp; buy once &nbsp;·&nbsp; all your machines
+      </p>
+    </section>
+
+    <div class="max-w-2xl space-y-14">
+
+      <!-- ── HOW IT WORKS ───────────────────────────────────────── -->
+      <section>
+        <p class="text-gray-300 leading-relaxed">
+          Every plugin from Radical Process works the same way: download it, use it free for
+          <strong class="font-medium text-white">14 days</strong>, and buy a licence key if you want to keep
+          it. There is no account to create, no subscription, and no dongle.
+        </p>
+      </section>
+
+      <!-- ── THE SHAPE OF IT ────────────────────────────────────── -->
+      <figure class="pt-2">
+        <figcaption class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-5">
+          The whole journey
+        </figcaption>
+
+        <div class="border border-gray-900 px-4 py-8 overflow-x-auto">
+          <svg viewBox="0 0 640 490" role="img" aria-labelledby="flow-title flow-desc"
+               class="w-full min-w-[560px] h-auto" fill="none">
+            <title id="flow-title">How a Radical Process licence works</title>
+            <desc id="flow-desc">
+              Install the plugin, then start a 14-day trial of the complete plugin. Buy a licence at any
+              point during or after the trial; the key arrives by email. If the 14 days run out first the
+              plugin keeps loading but is muted, and a key entered later picks up from there. Activating a
+              key makes one online check, after which the plugin is verified offline on every machine you own.
+            </desc>
+
+            <defs>
+              <marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#4b5563" />
+              </marker>
+            </defs>
+
+            <!-- edges -->
+            <g stroke="#4b5563" stroke-width="1" marker-end="url(#flow-arrow)">
+              <path d="M155 68 V96" />
+              <path d="M155 150 V178" />
+              <path d="M155 232 V260" />
+              <path d="M280 123 H360" />
+              <path d="M485 150 V178" />
+              <path d="M320 330 V348" />
+              <path d="M320 402 V424" />
+            </g>
+            <g stroke="#4b5563" stroke-width="1">
+              <path d="M155 314 V330 H320" />
+              <path d="M485 232 V330 H320" />
+            </g>
+
+            <!-- edge labels -->
+            <g font-size="10" fill="#6b7280" letter-spacing="0.08em">
+              <text x="320" y="115" text-anchor="middle">AT ANY TIME</text>
+              <text x="170" y="325">A KEY ENTERED LATER</text>
+            </g>
+
+            <!-- nodes -->
+            <g stroke="#374151" stroke-width="1">
+              <rect x="30" y="14" width="250" height="54" />
+              <rect x="30" y="96" width="250" height="54" />
+              <rect x="30" y="178" width="250" height="54" />
+              <rect x="30" y="260" width="250" height="54" stroke-dasharray="4 4" stroke="#4b5563" />
+              <rect x="360" y="96" width="250" height="54" />
+              <rect x="360" y="178" width="250" height="54" />
+              <rect x="145" y="348" width="350" height="54" />
+              <rect x="105" y="424" width="430" height="54" stroke="#9ca3af" />
+            </g>
+
+            <g text-anchor="middle">
+              <g font-size="13" fill="#e5e7eb">
+                <text x="155" y="37">Install the plugin</text>
+                <text x="155" y="119">Start the trial</text>
+                <text x="155" y="201">Day 14 — the trial ends</text>
+                <text x="155" y="283">The plugin goes quiet</text>
+                <text x="485" y="119">Buy a licence</text>
+                <text x="485" y="201">Your key arrives</text>
+                <text x="320" y="371">Activate — one online check</text>
+                <text x="320" y="447" fill="#ffffff">Unlocked, for good</text>
+              </g>
+              <g font-size="11" fill="#6b7280">
+                <text x="155" y="54">Nothing to register, nothing to sign</text>
+                <text x="155" y="136">One click · the complete plugin · 14 days</text>
+                <text x="155" y="218">Only if you have not bought by then</text>
+                <text x="155" y="300">It still loads and opens your work — but muted</text>
+                <text x="485" y="136">From inside the plugin, or from this site</text>
+                <text x="485" y="218">Shown at checkout and sent to your email</text>
+                <text x="320" y="388">A signed licence file is stored on that machine</text>
+                <text x="320" y="464">Checked offline · on every machine you own</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <p class="text-gray-500 text-xs mt-4 leading-relaxed">
+          The two paths meet: buying during the trial and buying months after it expired end in exactly the
+          same place.
+        </p>
+      </figure>
+
+      <!-- ── 1. THE TRIAL ───────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          1 &nbsp;·&nbsp; Fourteen free days
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Start the trial from inside the plugin with a single click. No name, no email address, no
+          registration. For the next 14 days you have the
+          <strong class="font-medium text-white">complete plugin</strong>: every feature unlocked, no
+          watermark, no export limit, nothing held back and nothing to upgrade to.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          The trial runs per plugin, so each product you try gets its own 14 days.
+        </p>
+      </section>
+
+      <!-- ── 2. WHEN THE TRIAL ENDS ─────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          2 &nbsp;·&nbsp; When the 14 days are over
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          The plugin does not disappear and neither does your work. It still loads, your projects still open,
+          and you can still look around — but without a valid licence it is
+          <strong class="font-medium text-white">muted</strong>, producing no audio output.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Enter a licence key at any point, during the trial or long after it has expired, and the sound comes
+          straight back where you left it.
+        </p>
+      </section>
+
+      <!-- ── 3. BUYING ──────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          3 &nbsp;·&nbsp; Buying a licence
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-6">
+          Two routes to the same checkout — take whichever is closer to hand:
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+          <div class="border border-gray-800 px-6 py-5">
+            <span class="block text-sm tracking-[0.25em] uppercase text-gray-200">From the plugin</span>
+            <span class="block text-gray-400 text-sm mt-3 leading-relaxed normal-case tracking-normal">
+              Press <em class="not-italic text-gray-200">Buy</em> in the licence dialog and the plugin opens
+              the shop in your browser, on the right product.
+            </span>
+          </div>
+
+          <div class="border border-gray-800 px-6 py-5">
+            <span class="block text-sm tracking-[0.25em] uppercase text-gray-200">From this site</span>
+            <span class="block text-gray-400 text-sm mt-3 leading-relaxed normal-case tracking-normal">
+              Go straight to the shop yourself — the plugin does not need to be open, or even installed, to
+              buy a licence for it.
+            </span>
+          </div>
+        </div>
+
+        <a href="#"
+           class="inline-block border border-gray-700 hover:border-gray-400 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase">
+          Buy a licence
+        </a>
+
+        <p class="text-gray-400 text-sm leading-relaxed mt-6">
+          Payment is handled by our reseller, Lemon Squeezy. As soon as it completes, your
+          <strong class="font-medium text-gray-300">licence key</strong> is shown on the confirmation page and
+          sent to the email address you paid with — keep that email, it is your proof of purchase.
+        </p>
+      </section>
+
+      <!-- ── 4. ACTIVATION ──────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          4 &nbsp;·&nbsp; Using your key
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Paste the key into the plugin's licence dialog and press activate. The plugin checks the key with our
+          server once, stores a signed licence file on that machine, and is unlocked. From then on it verifies
+          that file <strong class="font-medium text-white">offline</strong> — no connection is needed to run
+          the plugin, ever again.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          What that single activation call sends, and what the licence file contains, is set out in the
+          <a href="/privacy" class="text-gray-300 underline underline-offset-4 decoration-gray-700 hover:text-white transition-colors">privacy notice</a>.
+        </p>
+      </section>
+
+      <!-- ── 5. HOW MANY MACHINES ───────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          5 &nbsp;·&nbsp; As many machines as you own
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          The licence belongs to you, not to a computer. Use the same key on
+          <strong class="font-medium text-white">every machine you own</strong> — studio desktop, laptop on the
+          road, the spare box in the rehearsal room — with no activation count to ration and no seats to
+          release when you replace a machine.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          The one thing we ask in return: the key is personal. Do not pass it to other people or publish it.
+        </p>
+      </section>
+
+      <!-- ── QUESTIONS ──────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          Lost a key, or stuck?
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          Write to support at radical-process.com with the email address you bought with and we will dig out
+          your key.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-gray-900 text-center text-gray-600 text-xs py-10 tracking-widest uppercase">
+    <p>
+      <a href="/" class="hover:text-gray-400 transition-colors">Home</a>
+      <span class="text-gray-800 mx-2">·</span>
+      <a href="/about" class="hover:text-gray-400 transition-colors">About</a>
+      <span class="text-gray-800 mx-2">·</span>
+      <a href="/privacy" class="hover:text-gray-400 transition-colors">Privacy</a>
+    </p>
+    <p class="mt-3">&copy; 2026 Radical Process. All rights reserved.</p>
+  </footer>
+
+</Layout>
