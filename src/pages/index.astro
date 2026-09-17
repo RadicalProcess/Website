@@ -200,11 +200,11 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">Demos</h2>
 
       <p class="text-gray-300 leading-relaxed mb-6">
-        Four screen recordings, each with the binaural output of SGD itself as its soundtrack. Nothing plays
-        until you press play, and only one plays at a time.
+        Four screen recordings, each with the binaural output of SGD itself as its soundtrack. Step through them
+        with the arrows — nothing plays until you press play, and only one plays at a time.
       </p>
 
-      <div class="border border-gray-600 px-5 py-4 mb-12">
+      <div class="border border-gray-600 px-5 py-4 mb-10">
         <p class="text-xs tracking-[0.25em] uppercase text-gray-300 mb-2">
           Put headphones on first
         </p>
@@ -216,60 +216,89 @@ import Layout from '../layouts/Layout.astro';
         </p>
       </div>
 
-      <div class="space-y-14">
+      <div class="flex items-end justify-between gap-4 border-b border-gray-900 mb-5">
+        <div class="flex gap-4 sm:gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <button type="button" data-demo-tab
+                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
+                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Position</button>
+          <button type="button" data-demo-tab
+                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
+                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Movement</button>
+          <button type="button" data-demo-tab
+                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
+                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Sync</button>
+          <button type="button" data-demo-tab
+                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
+                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Ideas</button>
+        </div>
 
-        <figure>
-          <h3 class="font-medium mb-1">Position</h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-4">
-            One sound, one point, moved around the room between takes — front, behind, to either side, overhead,
-            close and far. Nothing is panned: each position is binauralized against the room, so the source
-            stays outside your head and the direction is heard rather than inferred from a level difference.
-          </p>
-          <video src="/video/sgd-position.mp4"
-                 poster="/img/sgd-position-poster.jpg"
-                 controls preload="none" playsinline
-                 class="w-full border border-gray-800 bg-black"></video>
-        </figure>
+        <div class="flex shrink-0 gap-1 pb-2">
+          <button type="button" data-demo-nav="prev" aria-label="Previous demo"
+                  class="w-8 h-8 border border-gray-800 text-gray-500 hover:text-white hover:border-gray-600
+                         transition-colors disabled:opacity-25 disabled:hover:text-gray-500
+                         disabled:hover:border-gray-800">&#8592;</button>
+          <button type="button" data-demo-nav="next" aria-label="Next demo"
+                  class="w-8 h-8 border border-gray-800 text-gray-500 hover:text-white hover:border-gray-600
+                         transition-colors disabled:opacity-25 disabled:hover:text-gray-500
+                         disabled:hover:border-gray-800">&#8594;</button>
+        </div>
+      </div>
 
-        <figure>
-          <h3 class="font-medium mb-1">Movement</h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-4">
-            The same sound set in motion along a handful of plain paths — straight across from left to right,
-            out and back, around a square, down a zigzag — and then the motion curve bent so the source rushes
-            through one stretch of the path and lingers over the next.
-          </p>
-          <video src="/video/sgd-movement.mp4"
-                 poster="/img/sgd-movement-poster.jpg"
-                 controls preload="none" playsinline
-                 class="w-full border border-gray-800 bg-black"></video>
-        </figure>
+      <div id="demo-track"
+           class="flex overflow-x-auto snap-x snap-mandatory [scrollbar-width:none]
+                  [&::-webkit-scrollbar]:hidden">
+          <figure class="w-full shrink-0 snap-start" aria-label="Position">
+            <video src="/video/sgd-position.mp4"
+                   poster="/img/sgd-position-poster.jpg"
+                   data-poster="/img/sgd-position-poster.jpg"
+                   controls preload="none" playsinline
+                   class="w-full border border-gray-800 bg-black"></video>
+            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
+              One sound, one point, moved around the room between takes — front, behind, to either side, overhead,
+              close and far. Nothing is panned: each position is binauralized against the room, so the source stays
+              outside your head and the direction is heard rather than inferred from a level difference.
+            </figcaption>
+          </figure>
 
-        <figure>
-          <h3 class="font-medium mb-1">Sync</h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-4">
-            The sample's waveform is painted along the trajectory, so every event in the file has a visible place
-            on the path. Line a transient up with a corner and the hit lands exactly there — the sound and the
-            space it moves through are edited as one thing, by eye.
-          </p>
-          <video src="/video/sgd-sync.mp4"
-                 poster="/img/sgd-sync-poster.jpg"
-                 controls preload="none" playsinline
-                 class="w-full border border-gray-800 bg-black"></video>
-        </figure>
+          <figure class="w-full shrink-0 snap-start" aria-label="Movement">
+            <video src="/video/sgd-movement.mp4"
+                   data-poster="/img/sgd-movement-poster.jpg"
+                   controls preload="none" playsinline
+                   class="w-full border border-gray-800 bg-black"></video>
+            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
+              The same sound set in motion along a handful of plain paths — straight across from left to right, out
+              and back, around a square, down a zigzag — and then the motion curve bent so the source rushes through
+              one stretch of the path and lingers over the next.
+            </figcaption>
+          </figure>
 
-        <figure>
-          <h3 class="font-medium mb-1">Ideas</h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-4">
-            A handful of sketches of what the thing is actually for: a siren crossing the room, footsteps
-            circling behind you, a whisper arriving at one ear, dogs somewhere off in the dark, a marching band
-            passing by. Each one is a sound, a path and a key.
-          </p>
-          <video src="/video/sgd-ideas.mp4"
-                 poster="/img/sgd-ideas-poster.jpg"
-                 controls preload="none" playsinline
-                 class="w-full border border-gray-800 bg-black"></video>
-        </figure>
+          <figure class="w-full shrink-0 snap-start" aria-label="Sync">
+            <video src="/video/sgd-sync.mp4"
+                   data-poster="/img/sgd-sync-poster.jpg"
+                   controls preload="none" playsinline
+                   class="w-full border border-gray-800 bg-black"></video>
+            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
+              The sample's waveform is painted along the trajectory, so every event in the file has a visible place on
+              the path. Line a transient up with a corner and the hit lands exactly there — the sound and the space
+              it moves through are edited as one thing, by eye.
+            </figcaption>
+          </figure>
 
+          <figure class="w-full shrink-0 snap-start" aria-label="Ideas">
+            <video src="/video/sgd-ideas.mp4"
+                   data-poster="/img/sgd-ideas-poster.jpg"
+                   controls preload="none" playsinline
+                   class="w-full border border-gray-800 bg-black"></video>
+            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
+              A handful of sketches of what the thing is actually for: a siren crossing the room, footsteps circling
+              behind you, a whisper arriving at one ear, dogs somewhere off in the dark, a marching band passing by.
+              Each one is a sound, a path and a key.
+            </figcaption>
+          </figure>
       </div>
     </section>
 
@@ -332,18 +361,85 @@ import Layout from '../layouts/Layout.astro';
   </footer>
 
   <script>
-    // The demo clips carry sound, so never let two of them talk over each other.
-    const demos = document.querySelectorAll('#demos video');
-    demos.forEach((video) => {
-      video.addEventListener('play', () => {
-        demos.forEach((other) => {
-          if (other !== video)
-          {
-            other.pause();
-          }
-        });
+    // The demos share a single frame: a track that scrolls one clip at a time,
+    // with the tab strip above it serving as both label and position marker.
+    const track = document.getElementById('demo-track');
+    const slides = Array.from(track.children);
+    const tabs = Array.from(document.querySelectorAll('#demos [data-demo-tab]'));
+    const previous = document.querySelector('#demos [data-demo-nav="prev"]');
+    const next = document.querySelector('#demos [data-demo-nav="next"]');
+
+    const currentIndex = () => Math.round(track.scrollLeft / track.clientWidth);
+
+    // Poster frames are heavy, so a slide only takes its own once it is the one
+    // on show or the one after it. Three unseen frames cost nothing on arrival.
+    const primePoster = (index) => {
+      const slide = slides[index];
+      if (!slide)
+      {
+        return;
+      }
+
+      const video = slide.querySelector('video');
+      if (!video.getAttribute('poster'))
+      {
+        video.setAttribute('poster', video.dataset.poster);
+      }
+    };
+
+    // Whatever moved the track — a tab, an arrow, a swipe — everything that
+    // follows from the new position is settled in one place.
+    const settle = () => {
+      const index = currentIndex();
+
+      tabs.forEach((tab, position) => {
+        tab.setAttribute('aria-current', position === index ? 'true' : 'false');
       });
+
+      // A clip scrolled out of the frame keeps playing otherwise, heard but not
+      // seen, which is the one thing a single-clip carousel must not allow.
+      slides.forEach((slide, position) => {
+        if (position !== index)
+        {
+          slide.querySelector('video').pause();
+        }
+      });
+
+      previous.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+
+      primePoster(index);
+      primePoster(index + 1);
+    };
+
+    const goTo = (index) => {
+      const target = Math.max(0, Math.min(slides.length - 1, index));
+      track.scrollTo({ left: track.clientWidth * target, behavior: 'smooth' });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => goTo(index));
     });
+
+    previous.addEventListener('click', () => goTo(currentIndex() - 1));
+    next.addEventListener('click', () => goTo(currentIndex() + 1));
+
+    // Scrolling reports continuously; the position only matters once it stops.
+    let settling;
+    track.addEventListener('scroll', () => {
+      clearTimeout(settling);
+      settling = setTimeout(settle, 120);
+    });
+
+    // A resize changes what a slide's width means, so the track is put back on
+    // a whole slide rather than left parked between two.
+    let resizing;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizing);
+      resizing = setTimeout(() => goTo(currentIndex()), 150);
+    });
+
+    settle();
   </script>
 
 </Layout>
