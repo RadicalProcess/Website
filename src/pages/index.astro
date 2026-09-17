@@ -200,7 +200,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">Demos</h2>
 
       <p class="text-gray-300 leading-relaxed mb-6">
-        Four screen recordings, each with the binaural output of SGD itself as its soundtrack. Step through them
+        Five screen recordings, each with the binaural output of SGD itself as its soundtrack. Step through them
         with the arrows — nothing plays until you press play, and only one plays at a time.
       </p>
 
@@ -226,6 +226,10 @@ import Layout from '../layouts/Layout.astro';
                   class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
                          sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
                          aria-[current=true]:text-white aria-[current=true]:border-gray-400">Movement</button>
+          <button type="button" data-demo-tab
+                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
+                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Stereo</button>
           <button type="button" data-demo-tab
                   class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
                          sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
@@ -273,6 +277,19 @@ import Layout from '../layouts/Layout.astro';
               The same sound set in motion along a handful of plain paths — straight across from left to right, out
               and back, around a square, down a zigzag — and then the motion curve bent so the source rushes through
               one stretch of the path and lingers over the next.
+            </figcaption>
+          </figure>
+
+          <figure class="w-full shrink-0 snap-start" aria-label="Stereo">
+            <video src="/video/sgd-stereo.mp4"
+                   data-poster="/img/sgd-stereo-poster.jpg"
+                   controls preload="none" playsinline
+                   class="w-full border border-gray-800 bg-black"></video>
+            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
+              A stereo file is placed as two sources rather than one, and the width envelope under the room says
+              where each channel sits at every moment. The same marching band is played five ways: the pair stepped
+              apart, left and right exchanged, the stage opened gradually from a point to its full width, the pair
+              pushed apart by distance, and spread front to back around you.
             </figcaption>
           </figure>
 
@@ -372,7 +389,7 @@ import Layout from '../layouts/Layout.astro';
     const currentIndex = () => Math.round(track.scrollLeft / track.clientWidth);
 
     // Poster frames are heavy, so a slide only takes its own once it is the one
-    // on show or the one after it. Three unseen frames cost nothing on arrival.
+    // on show or the one after it. Four unseen frames cost nothing on arrival.
     const primePoster = (index) => {
       const slide = slides[index];
       if (!slide)
