@@ -195,6 +195,84 @@ import Layout from '../layouts/Layout.astro';
       </figure>
     </section>
 
+    <!-- ── DEMOS ──────────────────────────────────────────────────── -->
+    <section id="demos" class="mt-20 border-t border-gray-900 pt-12">
+      <h2 class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">Demos</h2>
+
+      <p class="text-gray-300 leading-relaxed mb-6">
+        Four screen recordings, each with the binaural output of SGD itself as its soundtrack. Nothing plays
+        until you press play, and only one plays at a time.
+      </p>
+
+      <div class="border border-gray-600 px-5 py-4 mb-12">
+        <p class="text-xs tracking-[0.25em] uppercase text-gray-300 mb-2">
+          Put headphones on first
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          These clips are binaural: the whole point is that each ear hears its own signal. Over speakers both
+          signals reach both ears, the cues cancel, and the sound just comes from wherever your monitors are —
+          there is nothing left to demonstrate. On headphones the same file puts the source out in the room,
+          behind you, above you, passing your ear.
+        </p>
+      </div>
+
+      <div class="space-y-14">
+
+        <figure>
+          <h3 class="font-medium mb-1">Position</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            One sound, one point, moved around the room between takes — front, behind, to either side, overhead,
+            close and far. Nothing is panned: each position is binauralized against the room, so the source
+            stays outside your head and the direction is heard rather than inferred from a level difference.
+          </p>
+          <video src="/video/sgd-position.mp4"
+                 poster="/img/sgd-position-poster.jpg"
+                 controls preload="none" playsinline
+                 class="w-full border border-gray-800 bg-black"></video>
+        </figure>
+
+        <figure>
+          <h3 class="font-medium mb-1">Movement</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            The same sound set in motion along a handful of plain paths — straight across from left to right,
+            out and back, around a square, down a zigzag — and then the motion curve bent so the source rushes
+            through one stretch of the path and lingers over the next.
+          </p>
+          <video src="/video/sgd-movement.mp4"
+                 poster="/img/sgd-movement-poster.jpg"
+                 controls preload="none" playsinline
+                 class="w-full border border-gray-800 bg-black"></video>
+        </figure>
+
+        <figure>
+          <h3 class="font-medium mb-1">Sync</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            The sample's waveform is painted along the trajectory, so every event in the file has a visible place
+            on the path. Line a transient up with a corner and the hit lands exactly there — the sound and the
+            space it moves through are edited as one thing, by eye.
+          </p>
+          <video src="/video/sgd-sync.mp4"
+                 poster="/img/sgd-sync-poster.jpg"
+                 controls preload="none" playsinline
+                 class="w-full border border-gray-800 bg-black"></video>
+        </figure>
+
+        <figure>
+          <h3 class="font-medium mb-1">Ideas</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            A handful of sketches of what the thing is actually for: a siren crossing the room, footsteps
+            circling behind you, a whisper arriving at one ear, dogs somewhere off in the dark, a marching band
+            passing by. Each one is a sound, a path and a key.
+          </p>
+          <video src="/video/sgd-ideas.mp4"
+                 poster="/img/sgd-ideas-poster.jpg"
+                 controls preload="none" playsinline
+                 class="w-full border border-gray-800 bg-black"></video>
+        </figure>
+
+      </div>
+    </section>
+
     <!-- ── SPECS ──────────────────────────────────────────────────── -->
     <section class="mt-20 border-t border-gray-900 pt-12">
       <h2 class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">Specs</h2>
@@ -252,5 +330,20 @@ import Layout from '../layouts/Layout.astro';
     </p>
     <p class="mt-3">&copy; 2026 Radical Process. All rights reserved.</p>
   </footer>
+
+  <script>
+    // The demo clips carry sound, so never let two of them talk over each other.
+    const demos = document.querySelectorAll('#demos video');
+    demos.forEach((video) => {
+      video.addEventListener('play', () => {
+        demos.forEach((other) => {
+          if (other !== video)
+          {
+            other.pause();
+          }
+        });
+      });
+    });
+  </script>
 
 </Layout>
