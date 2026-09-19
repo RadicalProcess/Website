@@ -204,16 +204,23 @@ import Layout from '../layouts/Layout.astro';
         with the arrows — nothing plays until you press play, and only one plays at a time.
       </p>
 
-      <div class="border border-gray-600 px-5 py-4 mb-10">
-        <p class="text-xs tracking-[0.25em] uppercase text-gray-300 mb-2">
-          Put headphones on first
-        </p>
-        <p class="text-gray-300 text-sm leading-relaxed">
-          These clips are binaural: the whole point is that each ear hears its own signal. Over speakers both
-          signals reach both ears, the cues cancel, and the sound just comes from wherever your monitors are —
-          there is nothing left to demonstrate. On headphones the same file puts the source out in the room,
-          behind you, above you, passing your ear.
-        </p>
+      <div class="border border-gray-600 px-5 py-4 mb-10 flex items-start gap-4 sm:gap-5">
+        <svg class="shrink-0 w-7 h-7 sm:w-8 sm:h-8 text-gray-300 mt-0.5" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+        </svg>
+        <div>
+          <p class="text-xs tracking-[0.25em] uppercase text-gray-300 mb-2">
+            Put headphones on first
+          </p>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            These clips are binaural: the whole point is that each ear hears its own signal. Over speakers both
+            signals reach both ears, the cues cancel, and the sound just comes from wherever your monitors are —
+            there is nothing left to demonstrate. On headphones the same file puts the source out in the room,
+            behind you, above you, passing your ear.
+          </p>
+        </div>
       </div>
 
       <div class="flex items-end justify-between gap-4 border-b border-gray-900 mb-5">
