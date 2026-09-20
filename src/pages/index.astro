@@ -26,44 +26,9 @@ import Layout from '../layouts/Layout.astro';
         <p class="text-gray-500 text-sm tracking-wide uppercase">
           Spatial Gesture Designer &nbsp;·&nbsp; VST3 / AU / Standalone &nbsp;·&nbsp; macOS &amp; Windows
         </p>
-
-        <div class="grid sm:grid-cols-2 gap-4 mt-8">
-          <a href="https://download.radical-process.com/mac/SGD-latest.zip"
-             class="block border border-gray-700 hover:border-gray-400 px-6 py-5 text-gray-200 hover:text-white transition-colors">
-            <span class="block text-sm tracking-[0.25em] uppercase">Download for macOS</span>
-            <span class="block text-gray-500 text-xs mt-2 tracking-wide uppercase">
-              Apple Silicon &nbsp;·&nbsp; VST3 / AU / Standalone
-            </span>
-          </a>
-
-          <div class="border border-gray-800 px-6 py-5 text-gray-600">
-            <span class="block text-sm tracking-[0.25em] uppercase">Windows</span>
-            <span class="block text-xs mt-2 tracking-wide uppercase">Coming soon</span>
-          </div>
-        </div>
-
-        <p class="text-gray-500 text-xs mt-4 tracking-wide uppercase">
-          14-day free trial &nbsp;·&nbsp; every feature unlocked &nbsp;·&nbsp; no registration
-        </p>
       </div>
 
-      <p class="text-gray-300 leading-relaxed mb-6">
-        SGD turns a sound file into a <em class="not-italic text-white">gesture</em>: a sound together with its
-        motion through a virtual room around the listener. You draw the path on the room floor, lift it into
-        three dimensions with an elevation curve, bend the timing with a motion curve, and bind the result to a
-        MIDI key. Pressing that key does not merely play the sound, it sends it travelling — around you,
-        overhead, past your ear.
-      </p>
-
-      <p class="text-gray-300 leading-relaxed mb-10">
-        SGD does not pan. It binauralizes every gesture against a physical model of the room, so on headphones
-        the sound leaves your head, with distance, air, wall reflections and Doppler all following from the space
-        you built. The whole spatial computation runs offline in the background, so playback itself costs almost
-        nothing — and every gesture still keeps its own mixer strip with gain, three-band EQ and a send to the
-        shared room reverb.
-      </p>
-
-      <figure class="mb-16">
+      <figure class="mb-10">
         <video src="/video/sgd-digest.mp4"
                poster="/img/sgd-digest-poster.jpg"
                autoplay muted loop playsinline preload="metadata"
@@ -75,6 +40,22 @@ import Layout from '../layouts/Layout.astro';
           shaping its curves, sizing the room, then out to the observe view.
         </figcaption>
       </figure>
+
+      <p class="text-gray-300 leading-relaxed mb-6">
+        SGD turns a sound file into a <em class="not-italic text-white">gesture</em>: a sound together with its
+        motion through a virtual room around the listener. You draw the path on the room floor, lift it into
+        three dimensions with an elevation curve, bend the timing with a motion curve, and bind the result to a
+        MIDI key. Pressing that key does not merely play the sound, it sends it travelling — around you,
+        overhead, past your ear.
+      </p>
+
+      <p class="text-gray-300 leading-relaxed mb-16">
+        SGD does not pan. It binauralizes every gesture against a physical model of the room, so on headphones
+        the sound leaves your head, with distance, air, wall reflections and Doppler all following from the space
+        you built. The whole spatial computation runs offline in the background, so playback itself costs almost
+        nothing — and every gesture still keeps its own mixer strip with gain, three-band EQ and a send to the
+        shared room reverb.
+      </p>
 
       <!-- ── PITCHES ──────────────────────────────────────────────── -->
       <div class="grid sm:grid-cols-2 gap-x-10 gap-y-14 mb-16">
@@ -263,11 +244,25 @@ import Layout from '../layouts/Layout.astro';
            class="flex overflow-x-auto snap-x snap-mandatory [scrollbar-width:none]
                   [&::-webkit-scrollbar]:hidden">
           <figure class="w-full shrink-0 snap-start" aria-label="Position">
-            <video src="/video/sgd-position.mp4"
-                   poster="/img/sgd-position-poster.jpg"
-                   data-poster="/img/sgd-position-poster.jpg"
-                   controls preload="none" playsinline
-                   class="w-full border border-gray-800 bg-black"></video>
+            <div class="relative">
+              <video src="/video/sgd-position.mp4"
+                     poster="/img/sgd-position-poster.jpg"
+                     data-poster="/img/sgd-position-poster.jpg"
+                     controls preload="none" playsinline
+                     class="w-full border border-gray-800 bg-black"></video>
+
+              <button type="button" data-demo-play aria-label="Play this demo"
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
+                             bg-black/70 text-gray-100 flex items-center justify-center
+                             transition duration-200 hover:border-white hover:bg-black/90
+                             hover:text-white">
+                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
+                     aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
             <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
               One sound, one point, moved around the room between takes — front, behind, to either side, overhead,
               close and far. Nothing is panned: each position is binauralized against the room, so the source stays
@@ -276,10 +271,24 @@ import Layout from '../layouts/Layout.astro';
           </figure>
 
           <figure class="w-full shrink-0 snap-start" aria-label="Movement">
-            <video src="/video/sgd-movement.mp4"
-                   data-poster="/img/sgd-movement-poster.jpg"
-                   controls preload="none" playsinline
-                   class="w-full border border-gray-800 bg-black"></video>
+            <div class="relative">
+              <video src="/video/sgd-movement.mp4"
+                     data-poster="/img/sgd-movement-poster.jpg"
+                     controls preload="none" playsinline
+                     class="w-full border border-gray-800 bg-black"></video>
+
+              <button type="button" data-demo-play aria-label="Play this demo"
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
+                             bg-black/70 text-gray-100 flex items-center justify-center
+                             transition duration-200 hover:border-white hover:bg-black/90
+                             hover:text-white">
+                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
+                     aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
             <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
               The same sound set in motion along a handful of plain paths — straight across from left to right, out
               and back, around a square, down a zigzag — and then the motion curve bent so the source rushes through
@@ -288,10 +297,24 @@ import Layout from '../layouts/Layout.astro';
           </figure>
 
           <figure class="w-full shrink-0 snap-start" aria-label="Stereo">
-            <video src="/video/sgd-stereo.mp4"
-                   data-poster="/img/sgd-stereo-poster.jpg"
-                   controls preload="none" playsinline
-                   class="w-full border border-gray-800 bg-black"></video>
+            <div class="relative">
+              <video src="/video/sgd-stereo.mp4"
+                     data-poster="/img/sgd-stereo-poster.jpg"
+                     controls preload="none" playsinline
+                     class="w-full border border-gray-800 bg-black"></video>
+
+              <button type="button" data-demo-play aria-label="Play this demo"
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
+                             bg-black/70 text-gray-100 flex items-center justify-center
+                             transition duration-200 hover:border-white hover:bg-black/90
+                             hover:text-white">
+                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
+                     aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
             <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
               A stereo file is placed as two sources rather than one, and the width envelope under the room says
               where each channel sits at every moment. The same marching band is played five ways: the pair stepped
@@ -301,10 +324,24 @@ import Layout from '../layouts/Layout.astro';
           </figure>
 
           <figure class="w-full shrink-0 snap-start" aria-label="Sync">
-            <video src="/video/sgd-sync.mp4"
-                   data-poster="/img/sgd-sync-poster.jpg"
-                   controls preload="none" playsinline
-                   class="w-full border border-gray-800 bg-black"></video>
+            <div class="relative">
+              <video src="/video/sgd-sync.mp4"
+                     data-poster="/img/sgd-sync-poster.jpg"
+                     controls preload="none" playsinline
+                     class="w-full border border-gray-800 bg-black"></video>
+
+              <button type="button" data-demo-play aria-label="Play this demo"
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
+                             bg-black/70 text-gray-100 flex items-center justify-center
+                             transition duration-200 hover:border-white hover:bg-black/90
+                             hover:text-white">
+                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
+                     aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
             <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
               The sample's waveform is painted along the trajectory, so every event in the file has a visible place on
               the path. Line a transient up with a corner and the hit lands exactly there — the sound and the space
@@ -313,10 +350,24 @@ import Layout from '../layouts/Layout.astro';
           </figure>
 
           <figure class="w-full shrink-0 snap-start" aria-label="Ideas">
-            <video src="/video/sgd-ideas.mp4"
-                   data-poster="/img/sgd-ideas-poster.jpg"
-                   controls preload="none" playsinline
-                   class="w-full border border-gray-800 bg-black"></video>
+            <div class="relative">
+              <video src="/video/sgd-ideas.mp4"
+                     data-poster="/img/sgd-ideas-poster.jpg"
+                     controls preload="none" playsinline
+                     class="w-full border border-gray-800 bg-black"></video>
+
+              <button type="button" data-demo-play aria-label="Play this demo"
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
+                             bg-black/70 text-gray-100 flex items-center justify-center
+                             transition duration-200 hover:border-white hover:bg-black/90
+                             hover:text-white">
+                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
+                     aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
             <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
               A handful of sketches of what the thing is actually for: a siren crossing the room, footsteps circling
               behind you, a whisper arriving at one ear, dogs somewhere off in the dark, a marching band passing by.
@@ -326,6 +377,30 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <!-- ── DOWNLOAD ───────────────────────────────────────────────── -->
+    <section class="mt-20 border-t border-gray-900 pt-12">
+      <h2 class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">Download</h2>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="https://download.radical-process.com/mac/SGD-latest.zip"
+           class="block border border-gray-700 hover:border-gray-400 px-6 py-5 text-gray-200 hover:text-white transition-colors">
+          <span class="block text-sm tracking-[0.25em] uppercase">Download for macOS</span>
+          <span class="block text-gray-500 text-xs mt-2 tracking-wide uppercase">
+            Apple Silicon &nbsp;·&nbsp; VST3 / AU / Standalone
+          </span>
+        </a>
+
+        <div class="border border-gray-800 px-6 py-5 text-gray-600">
+          <span class="block text-sm tracking-[0.25em] uppercase">Windows</span>
+          <span class="block text-xs mt-2 tracking-wide uppercase">Coming soon</span>
+        </div>
+      </div>
+
+      <p class="text-gray-500 text-xs mt-4 tracking-wide uppercase">
+        14-day free trial &nbsp;·&nbsp; every feature unlocked &nbsp;·&nbsp; no registration
+      </p>
+    </section>
+
     <!-- ── SPECS ──────────────────────────────────────────────────── -->
     <section class="mt-20 border-t border-gray-900 pt-12">
       <h2 class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">Specs</h2>
@@ -333,7 +408,7 @@ import Layout from '../layouts/Layout.astro';
       <dl class="text-sm border-t border-gray-900 mb-6">
         <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
           <dt class="w-40 shrink-0 text-gray-500 uppercase tracking-[0.2em] text-xs pt-0.5">Platform</dt>
-          <dd class="text-gray-300">macOS, Apple Silicon (ARM) only</dd>
+          <dd class="text-gray-300">macOS 11 (Big Sur) or later, Apple Silicon (ARM) only</dd>
         </div>
         <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
           <dt class="w-40 shrink-0 text-gray-500 uppercase tracking-[0.2em] text-xs pt-0.5">Formats</dt>
@@ -346,9 +421,9 @@ import Layout from '../layouts/Layout.astro';
       </dl>
 
       <p class="text-gray-400 text-sm leading-relaxed">
-        The macOS build runs on Apple Silicon (ARM) only — there is no Intel build, and it will not run on
-        Intel Macs, including under Rosetta. Sessions must run at 44.1, 48 or 96 kHz; other sample rates are
-        not supported.
+        The macOS build needs macOS 11 (Big Sur) or above and runs on Apple Silicon (ARM) only — there is no
+        Intel build, and it will not run on Intel Macs, including under Rosetta. Sessions must run at 44.1, 48
+        or 96 kHz; other sample rates are not supported.
       </p>
     </section>
 
@@ -435,6 +510,25 @@ import Layout from '../layouts/Layout.astro';
       primePoster(index);
       primePoster(index + 1);
     };
+
+    // The native control bar puts its play button in a corner, small; each clip
+    // gets a large one in the middle of the frame that steps aside once the
+    // clip is running and comes back the moment it stops.
+    slides.forEach((slide) => {
+      const video = slide.querySelector('video');
+      const play = slide.querySelector('[data-demo-play]');
+
+      play.addEventListener('click', () => video.play());
+
+      const show = (visible) => {
+        play.classList.toggle('opacity-0', !visible);
+        play.classList.toggle('pointer-events-none', !visible);
+      };
+
+      video.addEventListener('play', () => show(false));
+      video.addEventListener('pause', () => show(true));
+      video.addEventListener('ended', () => show(true));
+    });
 
     const goTo = (index) => {
       const target = Math.max(0, Math.min(slides.length - 1, index));
