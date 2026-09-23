@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # large source media (not for the repo)
 resource/
+
+# SGD manual, pulled from the SGD repo at deploy time
+public/manual/

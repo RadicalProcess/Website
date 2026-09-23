@@ -3,6 +3,10 @@ name: Deploy to Cloudflare
 on:
   push:
     branches: [main]
+  # Sent by the SGD repo when a release lands on its main branch, so the
+  # published manual follows the release.
+  repository_dispatch:
+    types: [sgd-manual-updated]
   workflow_dispatch:
 
 permissions:
@@ -22,6 +26,21 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      # The SGD manual lives in the SGD repo, whose main branch only carries
+      # release builds. Pull its doc/manual into public/ so Astro ships it at
+      # /manual/sgd/.
+      - uses: actions/checkout@v4
+        with:
+          repository: RadicalProcess/SGD
+          ref: main
+          path: _sgd
+          token: ${{ secrets.SGD_MANUAL_TOKEN }}
+          sparse-checkout: doc/manual
+      - name: Copy the SGD manual into the site
+        run: |
+          test -f _sgd/doc/manual/index.html
+          mkdir -p public/manual/sgd
+          cp -R _sgd/doc/manual/. public/manual/sgd/
       - run: npm ci
       - run: npm run build
       - uses: cloudflare/wrangler-action@v3
