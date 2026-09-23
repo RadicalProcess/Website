@@ -1,10 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// TODO(store): the "Buy a licence" link points at "#" until the store URL
+// exists — point it at the same Lemon Squeezy checkout as licensing.astro.
 ---
 
 <Layout
   title="Radical Process"
-  description="SGD (Spatial Gesture Designer) turns a sound file into a gesture that travels through a virtual room around the listener. Binaural VST3 / AU / Standalone plugin for macOS and Windows."
+  description="SGD (Spatial Gesture Designer) turns a sound file into a gesture that travels through a virtual room around the listener. Binaural VST3 / AU / Standalone plugin for macOS."
 >
 
   <!-- ── HEADER ──────────────────────────────────────────────────── -->
@@ -24,11 +27,17 @@ import Layout from '../layouts/Layout.astro';
   <main class="max-w-4xl mx-auto px-6 pb-20">
 
     <section class="pt-10">
-      <div class="mb-8">
-        <h1 class="text-5xl sm:text-6xl font-black tracking-tighter mb-1">SGD</h1>
-        <p class="text-gray-400 text-sm tracking-wide uppercase">
-          Spatial Gesture Designer &nbsp;·&nbsp; VST3 / AU / Standalone &nbsp;·&nbsp; macOS &amp; Windows
-        </p>
+      <div class="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-5">
+        <div>
+          <h1 class="text-5xl sm:text-6xl font-black tracking-tighter mb-1">SGD</h1>
+          <p class="text-gray-400 text-sm tracking-wide uppercase">
+            Spatial Gesture Designer &nbsp;·&nbsp; VST3 / AU / Standalone &nbsp;·&nbsp; macOS
+          </p>
+        </div>
+        <a href="#"
+           class="inline-block shrink-0 border border-gray-500 hover:border-gray-300 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase">
+          Buy a licence &nbsp;·&nbsp; €129
+        </a>
       </div>
 
       <figure class="mb-10">
