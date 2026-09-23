@@ -1,10 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// TODO(store): the two "Buy a licence" links point at "#" until the store URL
-// exists. Point them at the Lemon Squeezy checkout (or the product page that
-// leads to it) once it is live — the same destination the plugin's Buy button
-// opens.
 ---
 
 <Layout
@@ -186,18 +181,14 @@ import Layout from '../layouts/Layout.astro';
           <div class="border border-gray-800 px-6 py-5">
             <span class="block text-sm tracking-[0.25em] uppercase text-gray-200">From this site</span>
             <span class="block text-gray-400 text-sm mt-3 leading-relaxed normal-case tracking-normal">
-              Go straight to the shop yourself — the plugin does not need to be open, or even installed, to
-              buy a licence for it.
+              Use the <em class="not-italic text-gray-200">Buy a licence</em> button at the top of the
+              <a href="/" class="text-gray-300 underline underline-offset-4 decoration-gray-500 hover:text-white transition-colors">SGD page</a>
+              — the plugin does not need to be open, or even installed, to buy a licence for it.
             </span>
           </div>
         </div>
 
-        <a href="#"
-           class="inline-block border border-gray-500 hover:border-gray-300 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase">
-          Buy a licence
-        </a>
-
-        <p class="text-gray-400 text-sm leading-relaxed mt-6">
+        <p class="text-gray-400 text-sm leading-relaxed">
           Payment is handled by our reseller, Lemon Squeezy. As soon as it completes, your
           <strong class="font-medium text-gray-300">licence key</strong> is shown on the confirmation page and
           sent to the email address you paid with — keep that email, it is your proof of purchase.

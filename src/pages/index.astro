@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 // TODO(store): the "Buy a licence" link points at "#" until the store URL
-// exists — point it at the same Lemon Squeezy checkout as licensing.astro.
+// exists. Point it at the Lemon Squeezy checkout (or the product page that
+// leads to it) once it is live — the same destination the plugin's Buy button
+// opens.
 ---
 
 <Layout
@@ -34,10 +36,16 @@ import Layout from '../layouts/Layout.astro';
             Spatial Gesture Designer &nbsp;·&nbsp; VST3 / AU / Standalone &nbsp;·&nbsp; macOS
           </p>
         </div>
-        <a href="#"
-           class="inline-block shrink-0 border border-gray-500 hover:border-gray-300 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase">
-          Buy a licence &nbsp;·&nbsp; €129
-        </a>
+        <div class="flex flex-wrap gap-3">
+          <a href="#download"
+             class="inline-block border border-gray-500 hover:border-gray-300 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase">
+            Download
+          </a>
+          <a href="#"
+             class="inline-block border border-gray-500 hover:border-gray-300 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase">
+            Buy a licence
+          </a>
+        </div>
       </div>
 
       <figure class="mb-10">
@@ -395,7 +403,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ── DOWNLOAD ───────────────────────────────────────────────── -->
-    <section class="mt-20 border-t border-gray-900 pt-12">
+    <section id="download" class="scroll-mt-8 mt-20 border-t border-gray-900 pt-12">
       <h2 class="text-xs tracking-[0.3em] uppercase text-gray-300 mb-6">Download</h2>
 
       <div class="grid sm:grid-cols-2 gap-4">
