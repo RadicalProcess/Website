@@ -11,9 +11,9 @@ import Layout from '../layouts/Layout.astro';
   <header class="max-w-4xl mx-auto px-6 pt-14 pb-4">
     <div class="flex items-center gap-4">
       <img src="/img/logo.png" alt="Radical Process" class="h-9 w-auto shrink-0" />
-      <p class="text-xs uppercase text-gray-500">
+      <p class="text-xs uppercase text-gray-400">
         <span class="tracking-[0.45em] text-gray-200">Radical Process</span>
-        <span class="text-gray-500 tracking-[0.25em]">
+        <span class="text-gray-400 tracking-[0.25em]">
           &nbsp;—&nbsp; Unapologetically niche, unapologetically deep
         </span>
       </p>
@@ -26,7 +26,7 @@ import Layout from '../layouts/Layout.astro';
     <section class="pt-10">
       <div class="mb-8">
         <h1 class="text-5xl sm:text-6xl font-black tracking-tighter mb-1">SGD</h1>
-        <p class="text-gray-500 text-sm tracking-wide uppercase">
+        <p class="text-gray-400 text-sm tracking-wide uppercase">
           Spatial Gesture Designer &nbsp;·&nbsp; VST3 / AU / Standalone &nbsp;·&nbsp; macOS &amp; Windows
         </p>
       </div>
@@ -37,7 +37,7 @@ import Layout from '../layouts/Layout.astro';
                autoplay muted loop playsinline preload="metadata"
                aria-label="A silent screen recording of SGD: drawing a gesture's path on the room floor, shaping its elevation curve, and watching the gestures fly through the room from outside."
                class="w-full border border-gray-800"></video>
-        <figcaption class="text-gray-500 text-sm mt-3">
+        <figcaption class="text-gray-400 text-sm mt-3">
           Edit view — the whole instrument on one screen: gestures on the left, the room floor in the middle,
           the curve editor below it, and the keyboard they all play from along the bottom. Drawing a path,
           shaping its curves, sizing the room, then out to the observe view.
@@ -171,7 +171,7 @@ import Layout from '../layouts/Layout.astro';
       <figure>
         <img src="/img/sgd-observe.png" alt="The SGD observe view: the room as a wireframe box seen from outside, with four named gestures tracing coloured paths around the listener."
              class="w-full border border-gray-800" />
-        <figcaption class="text-gray-500 text-sm mt-3">
+        <figcaption class="text-gray-400 text-sm mt-3">
           Observe view — the room from outside at true scale, the listener at its centre, every sounding gesture
           named and tracing its path in its own colour, each with a glowing sphere that swells and fades with the
           loudness of the sound.
@@ -211,35 +211,35 @@ import Layout from '../layouts/Layout.astro';
         <div class="flex gap-4 sm:gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <button type="button" data-demo-tab
                   class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
                          aria-[current=true]:text-white aria-[current=true]:border-gray-400">Position</button>
           <button type="button" data-demo-tab
                   class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
                          aria-[current=true]:text-white aria-[current=true]:border-gray-400">Movement</button>
           <button type="button" data-demo-tab
                   class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
                          aria-[current=true]:text-white aria-[current=true]:border-gray-400">Stereo</button>
           <button type="button" data-demo-tab
                   class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
                          aria-[current=true]:text-white aria-[current=true]:border-gray-400">Sync</button>
           <button type="button" data-demo-tab
                   class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-600 hover:text-gray-300 transition-colors
+                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
                          aria-[current=true]:text-white aria-[current=true]:border-gray-400">Ideas</button>
         </div>
 
         <div class="flex shrink-0 gap-1 pb-2">
           <button type="button" data-demo-nav="prev" aria-label="Previous demo"
-                  class="w-8 h-8 border border-gray-800 text-gray-500 hover:text-white hover:border-gray-600
-                         transition-colors disabled:opacity-25 disabled:hover:text-gray-500
-                         disabled:hover:border-gray-800">&#8592;</button>
+                  class="w-8 h-8 border border-gray-500 text-gray-300 hover:text-white hover:border-gray-300
+                         transition-colors disabled:opacity-25 disabled:hover:text-gray-300
+                         disabled:hover:border-gray-500">&#8592;</button>
           <button type="button" data-demo-nav="next" aria-label="Next demo"
-                  class="w-8 h-8 border border-gray-800 text-gray-500 hover:text-white hover:border-gray-600
-                         transition-colors disabled:opacity-25 disabled:hover:text-gray-500
-                         disabled:hover:border-gray-800">&#8594;</button>
+                  class="w-8 h-8 border border-gray-500 text-gray-300 hover:text-white hover:border-gray-300
+                         transition-colors disabled:opacity-25 disabled:hover:text-gray-300
+                         disabled:hover:border-gray-500">&#8594;</button>
         </div>
       </div>
 
@@ -386,20 +386,20 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="grid sm:grid-cols-2 gap-4">
         <a href="https://download.radical-process.com/mac/SGD-latest.zip"
-           class="block border border-gray-700 hover:border-gray-400 px-6 py-5 text-gray-200 hover:text-white transition-colors">
+           class="block border border-gray-500 hover:border-gray-300 px-6 py-5 text-gray-200 hover:text-white transition-colors">
           <span class="block text-sm tracking-[0.25em] uppercase">Download for macOS</span>
-          <span class="block text-gray-500 text-xs mt-2 tracking-wide uppercase">
+          <span class="block text-gray-400 text-xs mt-2 tracking-wide uppercase">
             Apple Silicon &nbsp;·&nbsp; VST3 / AU / Standalone
           </span>
         </a>
 
-        <div class="border border-gray-800 px-6 py-5 text-gray-600">
+        <div class="border border-gray-800 px-6 py-5 text-gray-400">
           <span class="block text-sm tracking-[0.25em] uppercase">Windows</span>
           <span class="block text-xs mt-2 tracking-wide uppercase">Coming soon</span>
         </div>
       </div>
 
-      <p class="text-gray-500 text-xs mt-4 tracking-wide uppercase">
+      <p class="text-gray-400 text-xs mt-4 tracking-wide uppercase">
         14-day free trial &nbsp;·&nbsp; every feature unlocked &nbsp;·&nbsp; no registration
       </p>
     </section>
@@ -410,15 +410,15 @@ import Layout from '../layouts/Layout.astro';
 
       <dl class="text-sm border-t border-gray-900 mb-6">
         <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
-          <dt class="w-40 shrink-0 text-gray-500 uppercase tracking-[0.2em] text-xs pt-0.5">Platform</dt>
+          <dt class="w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5">Platform</dt>
           <dd class="text-gray-300">macOS 11 (Big Sur) or later, Apple Silicon (ARM) only</dd>
         </div>
         <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
-          <dt class="w-40 shrink-0 text-gray-500 uppercase tracking-[0.2em] text-xs pt-0.5">Formats</dt>
+          <dt class="w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5">Formats</dt>
           <dd class="text-gray-300">VST3, AU, Standalone</dd>
         </div>
         <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
-          <dt class="w-40 shrink-0 text-gray-500 uppercase tracking-[0.2em] text-xs pt-0.5">Sample rates</dt>
+          <dt class="w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5">Sample rates</dt>
           <dd class="text-gray-300">44.1, 48 and 96 kHz only</dd>
         </div>
       </dl>
@@ -445,20 +445,20 @@ import Layout from '../layouts/Layout.astro';
         <strong class="font-medium text-gray-300">muted</strong> — it produces no audio output until a valid
         licence key is entered. Enter one at any time, before or after the trial ends, and the sound comes
         straight back. One key covers every machine you own — see
-        <a href="/licensing" class="text-gray-300 underline underline-offset-4 decoration-gray-700 hover:text-white transition-colors">how licensing works</a>.
+        <a href="/licensing" class="text-gray-300 underline underline-offset-4 decoration-gray-500 hover:text-white transition-colors">how licensing works</a>.
       </p>
     </section>
 
   </main>
 
-  <footer class="border-t border-gray-900 text-center text-gray-500 text-xs py-10 tracking-widest uppercase">
+  <footer class="border-t border-gray-900 text-center text-gray-400 text-xs py-10 tracking-widest uppercase">
     <p>
       <a href="/about" class="text-gray-300 hover:text-white transition-colors">About</a>
-      <span class="text-gray-700 mx-2">·</span>
+      <span class="text-gray-500 mx-2">·</span>
       <a href="/about#impressum" class="text-gray-300 hover:text-white transition-colors">Impressum</a>
-      <span class="text-gray-700 mx-2">·</span>
+      <span class="text-gray-500 mx-2">·</span>
       <a href="/licensing" class="text-gray-300 hover:text-white transition-colors">Licensing</a>
-      <span class="text-gray-700 mx-2">·</span>
+      <span class="text-gray-500 mx-2">·</span>
       <a href="/privacy" class="text-gray-300 hover:text-white transition-colors">Privacy</a>
     </p>
     <p class="mt-3">&copy; 2026 Radical Process. All rights reserved.</p>
