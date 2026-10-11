@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="Radical Process"
-  description="SGD (Spatial Gesture Designer) turns a sound file into a gesture that travels through a virtual room around the listener. Binaural VST3 / AU / Standalone plugin for macOS."
+  description="SGD (Spatial Gesture Designer) turns a sound file into a gesture that travels through a virtual room around the listener. Binaural VST3 / AU / Standalone plugin for macOS and Windows."
 >
 
   <!-- ── HEADER ──────────────────────────────────────────────────── -->
@@ -33,7 +33,7 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <h1 class="text-5xl sm:text-6xl font-black tracking-tighter mb-1">SGD</h1>
           <p class="text-gray-400 text-sm tracking-wide uppercase">
-            Spatial Gesture Designer &nbsp;·&nbsp; VST3 / AU / Standalone &nbsp;·&nbsp; macOS
+            Spatial Gesture Designer &nbsp;·&nbsp; VST3 / AU / Standalone &nbsp;·&nbsp; macOS / Windows
           </p>
         </div>
         <div class="flex flex-wrap gap-3">
@@ -426,10 +426,13 @@ import Layout from '../layouts/Layout.astro';
           </span>
         </a>
 
-        <div class="border border-gray-800 px-6 py-5 text-gray-400">
-          <span class="block text-sm tracking-[0.25em] uppercase">Windows</span>
-          <span class="block text-xs mt-2 tracking-wide uppercase">Coming in v1.1 &nbsp;·&nbsp; later in 2026</span>
-        </div>
+        <a href="https://download.radical-process.com/win/SGD-latest.zip"
+           class="block border border-gray-500 hover:border-gray-300 px-6 py-5 text-gray-200 hover:text-white transition-colors">
+          <span class="block text-sm tracking-[0.25em] uppercase">Download for Windows</span>
+          <span class="block text-gray-400 text-xs mt-2 tracking-wide uppercase">
+            64-bit &nbsp;·&nbsp; VST3 / Standalone
+          </span>
+        </a>
       </div>
 
       <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 mt-4">
@@ -452,13 +455,14 @@ import Layout from '../layouts/Layout.astro';
           <dt class="w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5">Platform</dt>
           <dd class="text-gray-300">
             macOS 11 (Big Sur) or later, Apple Silicon (ARM) only
-            <span class="block text-gray-400 text-xs mt-1">Windows coming in v1.1, later in 2026</span>
+            <span class="block">Windows 10 or later, 64-bit</span>
           </dd>
         </div>
         <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
           <dt class="w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5">Formats</dt>
           <dd class="text-gray-300">
             VST3, AU, Standalone
+            <span class="block text-gray-400 text-xs mt-1">AU is macOS only</span>
             <span class="block text-gray-400 text-xs mt-1">AAX (Pro Tools) coming in v2.0</span>
           </dd>
         </div>
@@ -475,7 +479,8 @@ import Layout from '../layouts/Layout.astro';
       <p class="text-gray-400 text-sm leading-relaxed">
         The macOS build needs macOS 11 (Big Sur) or above and runs on Apple Silicon (ARM) only — there is no
         Intel build, and it will not run on Intel Macs, including under Rosetta. Sessions must run at 44.1, 48
-        or 96 kHz; other sample rates are not supported.
+        or 96 kHz; other sample rates are not supported. The Windows build needs Windows 10 or later (64-bit)
+        and comes as VST3 and Standalone.
       </p>
     </section>
 
