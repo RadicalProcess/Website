@@ -11,9 +11,6 @@ interface Props {
 const { lang, isHome = false } = Astro.props;
 
 const home = pathIn('/', lang);
-const tagline = lang === 'ja'
-  ? 'とことんニッチに、とことん深く'
-  : 'Unapologetically niche, unapologetically deep';
 ---
 
 <header class="relative max-w-4xl mx-auto px-6 pt-14 pb-4">
@@ -27,7 +24,7 @@ const tagline = lang === 'ja'
         ? <span class="tracking-[0.45em] text-gray-200">Radical Process</span>
         : <a href={home} class="tracking-[0.45em] text-gray-200 hover:text-white transition-colors">Radical Process</a>}
       <span class="text-gray-400 tracking-[0.25em]">
-        &nbsp;—&nbsp; {tagline}
+        &nbsp;—&nbsp; Unapologetically niche, unapologetically deep
       </span>
     </p>
   </div>
