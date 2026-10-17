@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { getLocalePaths, type Lang } from '../../i18n';
+import copy from '../../translations/about';
+
+export const getStaticPaths = getLocalePaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const t = copy[lang];
+
+const headingClass = 'text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4';
+
+// Japanese is set at its natural spacing; tightened tracking is for Latin.
+const titleTracking = lang === 'ja' ? 'tracking-tight' : 'tracking-tighter';
+---
+
+<Layout title={t.title} description={t.description}>
+
+  <SiteHeader lang={lang} />
+
+  <main class="max-w-4xl mx-auto px-6 pb-20">
+
+    <!-- ── ABOUT ──────────────────────────────────────────────────── -->
+    <section class="pt-10">
+      <h1 class:list={['text-5xl sm:text-6xl font-black mb-8', titleTracking]}>{t.heading}</h1>
+
+      <p class="text-gray-300 leading-relaxed max-w-2xl">{t.about}</p>
+    </section>
+
+    <hr class="border-gray-800 my-16" />
+
+    <!-- ── COMMUNITY ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class={headingClass}>{t.communityHeading}</h2>
+      <p class="text-gray-300 leading-relaxed max-w-2xl" set:html={t.community} />
+    </section>
+
+    <hr class="border-gray-800 my-16" />
+
+    <!-- ── CONTACT ────────────────────────────────────────────────── -->
+    <section>
+      <h2 class={headingClass}>{t.contactHeading}</h2>
+      <p class="text-gray-300 leading-relaxed max-w-2xl">
+        support at radical-process.com
+      </p>
+    </section>
+
+    <hr class="border-gray-800 my-16" />
+
+    <!-- ── IMPRESSUM ──────────────────────────────────────────────── -->
+    <section id="impressum" class="scroll-mt-8">
+      <h2 class={headingClass}>{t.impressumHeading}</h2>
+      <p class="text-gray-300 leading-relaxed max-w-2xl mb-2">Angaben gemäß § 5 DDG</p>
+      <address class="text-gray-300 leading-relaxed max-w-2xl not-italic">
+        Chikashi Miyama<br />
+        c/o Impressumservice Dein-Impressum<br />
+        Stettiner Str. 41<br />
+        35410 Hungen
+      </address>
+    </section>
+  </main>
+
+  <SiteFooter lang={lang} current="about" />
+
+</Layout>

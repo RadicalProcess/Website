@@ -1,0 +1,203 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DemoCarousel from '../../components/DemoCarousel.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { formatDate, getLocalePaths, type Lang } from '../../i18n';
+import copy from '../../translations/home';
+
+export const getStaticPaths = getLocalePaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const t = copy[lang];
+
+// The launch offer, shared by both languages.
+const regularPrice = '€129';
+const launchPrice = '€89';
+const discountCode = 'AXNDG4OA';
+const offerEnds = '2026-11-18';
+
+const buttonClass = 'inline-block border border-gray-500 hover:border-gray-300 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase';
+const sectionClass = 'mt-20 border-t border-gray-900 pt-12';
+const headingClass = 'text-xs tracking-[0.3em] uppercase text-gray-300 mb-6';
+const termClass = 'w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5';
+const specRowClass = 'flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3';
+const downloadClass = 'block border border-gray-500 hover:border-gray-300 px-6 py-5 text-gray-200 hover:text-white transition-colors';
+
+const offerCode = `<code class="font-mono text-white select-all">${discountCode}</code>`;
+const offerDate = `<time datetime="${offerEnds}">${formatDate(offerEnds, lang, false)}</time>`;
+
+const demos = Object.entries(t.demos).map(([slug, demo]) => ({ slug, ...demo }));
+---
+
+<Layout title="Radical Process" description={t.description}>
+
+  <SiteHeader lang={lang} isHome />
+
+  <!-- ── SGD ────────────────────────────────────────────────────── -->
+  <main class="max-w-4xl mx-auto px-6 pb-20">
+
+    <section class="pt-10">
+      <div class="mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-5">
+        <div>
+          <h1 class="text-5xl sm:text-6xl font-black tracking-tighter mb-1">SGD</h1>
+          <p class="text-gray-400 text-sm tracking-wide uppercase">
+            Spatial Gesture Designer &nbsp;·&nbsp; {t.formats}
+            <span class="block mt-1">macOS / Windows</span>
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#download" class={buttonClass}>
+            {t.download}
+          </a>
+          <a href="https://radical-process.com/buy/sgd" class={buttonClass}>
+            {t.buy}
+            <span class="flex gap-x-1.5 mt-2 text-xs tracking-normal normal-case whitespace-nowrap">
+              <s class="text-gray-400"><span class="sr-only">{t.regularPrice}</span>{regularPrice}</s>
+              <span class="text-white font-medium">{launchPrice}</span>
+              <span class="text-gray-400">{t.launchDiscount}</span>
+            </span>
+            <span class="block mt-1 text-xs tracking-normal normal-case text-gray-400" set:html={t.withCode(offerCode)} />
+            <span class="block mt-1 text-xs tracking-normal normal-case text-gray-400" set:html={t.until(offerDate)} />
+          </a>
+        </div>
+      </div>
+
+      <figure class="mb-10">
+        <video src="/video/sgd-digest.mp4"
+               poster="/img/sgd-digest-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"
+               aria-label={t.digestLabel}
+               class="w-full border border-gray-800"></video>
+        <figcaption class="text-gray-400 text-sm mt-3">{t.digestCaption}</figcaption>
+      </figure>
+
+      {t.intro.map((paragraph, index) => (
+        <p class:list={['text-gray-300 leading-relaxed', index === t.intro.length - 1 ? 'mb-16' : 'mb-6']}
+           set:html={paragraph} />
+      ))}
+
+      <!-- ── PITCHES ──────────────────────────────────────────────── -->
+      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-14 mb-16">
+        {Object.entries(t.pitches).map(([image, pitch]) => (
+          <div>
+            <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+              <img src={`/img/sgd-${image}.png`} alt={pitch.alt}
+                   class="max-h-full max-w-full object-contain" />
+            </div>
+            <h3 class="font-medium mb-1">{pitch.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{pitch.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <figure>
+        <img src="/img/sgd-observe.png" alt={t.observeAlt}
+             class="w-full border border-gray-800" />
+        <figcaption class="text-gray-400 text-sm mt-3">{t.observeCaption}</figcaption>
+      </figure>
+    </section>
+
+    <!-- ── DEMOS ──────────────────────────────────────────────────── -->
+    <section id="demos" class={sectionClass}>
+      <h2 class={headingClass}>{t.demosHeading}</h2>
+
+      <p class="text-gray-300 leading-relaxed mb-6">{t.demosIntro}</p>
+
+      <div class="border border-gray-600 px-5 py-4 mb-10 flex items-start gap-4 sm:gap-5">
+        <svg class="shrink-0 w-7 h-7 sm:w-8 sm:h-8 text-gray-300 mt-0.5" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+        </svg>
+        <div>
+          <p class="text-xs tracking-[0.25em] uppercase text-gray-300 mb-2">{t.headphonesHeading}</p>
+          <p class="text-gray-300 text-sm leading-relaxed">{t.headphonesBody}</p>
+        </div>
+      </div>
+
+      <DemoCarousel
+        previousLabel={t.previousDemo}
+        nextLabel={t.nextDemo}
+        playLabel={t.playDemo}
+        demos={demos}
+      />
+    </section>
+
+    <!-- ── DOWNLOAD ───────────────────────────────────────────────── -->
+    <section id="download" class:list={['scroll-mt-8', sectionClass]}>
+      <h2 class={headingClass}>{t.downloadHeading}</h2>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="https://download.radical-process.com/mac/SGD-latest.zip" class={downloadClass}>
+          <span class="block text-sm tracking-[0.25em] uppercase">{t.downloadMac}</span>
+          <span class="block text-gray-400 text-xs mt-2 tracking-wide uppercase">
+            Apple Silicon &nbsp;·&nbsp; {t.formats}
+          </span>
+        </a>
+
+        <a href="https://download.radical-process.com/win/SGD-latest.zip" class={downloadClass}>
+          <span class="block text-sm tracking-[0.25em] uppercase">{t.downloadWindows}</span>
+          <span class="block text-gray-400 text-xs mt-2 tracking-wide uppercase">
+            64-bit &nbsp;·&nbsp; {t.windowsFormats}
+          </span>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 mt-4">
+        <p class="text-gray-400 text-xs tracking-wide uppercase"
+           set:html={t.downloadNotes.join(' &nbsp;·&nbsp; ')} />
+        <a href="/manual/sgd/"
+           class="text-gray-300 hover:text-white text-xs tracking-[0.25em] uppercase underline underline-offset-4 decoration-gray-500 transition-colors">
+          {t.manual} &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SPECS ──────────────────────────────────────────────────── -->
+    <section class={sectionClass}>
+      <h2 class={headingClass}>{t.specsHeading}</h2>
+
+      <dl class="text-sm border-t border-gray-900 mb-6">
+        <div class={specRowClass}>
+          <dt class={termClass}>{t.platformLabel}</dt>
+          <dd class="text-gray-300">
+            {t.platformMac}
+            <span class="block">{t.platformWindows}</span>
+          </dd>
+        </div>
+        <div class={specRowClass}>
+          <dt class={termClass}>{t.formatsLabel}</dt>
+          <dd class="text-gray-300">
+            {t.formatList}
+            <span class="block text-gray-400 text-xs mt-1">{t.auNote}</span>
+            <span class="block text-gray-400 text-xs mt-1">{t.aaxNote}</span>
+          </dd>
+        </div>
+        <div class={specRowClass}>
+          <dt class={termClass}>{t.sampleRatesLabel}</dt>
+          <dd class="text-gray-300">{t.sampleRates}</dd>
+        </div>
+        <div class={specRowClass}>
+          <dt class={termClass}>{t.hostsLabel}</dt>
+          <dd class="text-gray-300">{t.hosts}</dd>
+        </div>
+      </dl>
+
+      <p class="text-gray-400 text-sm leading-relaxed">{t.specsNote}</p>
+    </section>
+
+    <!-- ── TRIAL & LICENSE ───────────────────────────────────── -->
+    <section class={sectionClass}>
+      <h2 class={headingClass}>{t.trialHeading}</h2>
+
+      <p class="text-gray-300 leading-relaxed mb-6" set:html={t.trial} />
+
+      <p class="text-gray-400 text-sm leading-relaxed" set:html={t.afterTrial} />
+    </section>
+
+  </main>
+
+  <SiteFooter lang={lang} current="home" />
+
+</Layout>
