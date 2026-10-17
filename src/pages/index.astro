@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import DemoCarousel from '../components/DemoCarousel.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 
 // TODO(store): the "Buy a license" link points at "#" until the store URL
 // exists. Point it at the Lemon Squeezy checkout (or the product page that
@@ -12,18 +15,7 @@ import Layout from '../layouts/Layout.astro';
   description="SGD (Spatial Gesture Designer) turns a sound file into a gesture that travels through a virtual room around the listener. Binaural VST3 / AU / Standalone plugin for macOS and Windows."
 >
 
-  <!-- ── HEADER ──────────────────────────────────────────────────── -->
-  <header class="max-w-4xl mx-auto px-6 pt-14 pb-4">
-    <div class="flex items-center gap-4">
-      <img src="/img/logo.png" alt="Radical Process" class="h-9 w-auto shrink-0" />
-      <p class="text-xs uppercase text-gray-400">
-        <span class="tracking-[0.45em] text-gray-200">Radical Process</span>
-        <span class="text-gray-400 tracking-[0.25em]">
-          &nbsp;—&nbsp; Unapologetically niche, unapologetically deep
-        </span>
-      </p>
-    </div>
-  </header>
+  <SiteHeader lang="en" isHome />
 
   <!-- ── SGD ────────────────────────────────────────────────────── -->
   <main class="max-w-4xl mx-auto px-6 pb-20">
@@ -241,177 +233,50 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-      <div class="flex items-end justify-between gap-4 border-b border-gray-900 mb-5">
-        <div class="flex gap-4 sm:gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <button type="button" data-demo-tab
-                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
-                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Position</button>
-          <button type="button" data-demo-tab
-                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
-                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Movement</button>
-          <button type="button" data-demo-tab
-                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
-                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Stereo</button>
-          <button type="button" data-demo-tab
-                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
-                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Sync</button>
-          <button type="button" data-demo-tab
-                  class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
-                         sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
-                         aria-[current=true]:text-white aria-[current=true]:border-gray-400">Ideas</button>
-        </div>
-
-        <div class="flex shrink-0 gap-1 pb-2">
-          <button type="button" data-demo-nav="prev" aria-label="Previous demo"
-                  class="w-8 h-8 border border-gray-500 text-gray-300 hover:text-white hover:border-gray-300
-                         transition-colors disabled:opacity-25 disabled:hover:text-gray-300
-                         disabled:hover:border-gray-500">&#8592;</button>
-          <button type="button" data-demo-nav="next" aria-label="Next demo"
-                  class="w-8 h-8 border border-gray-500 text-gray-300 hover:text-white hover:border-gray-300
-                         transition-colors disabled:opacity-25 disabled:hover:text-gray-300
-                         disabled:hover:border-gray-500">&#8594;</button>
-        </div>
-      </div>
-
-      <div id="demo-track"
-           class="flex overflow-x-auto snap-x snap-mandatory [scrollbar-width:none]
-                  [&::-webkit-scrollbar]:hidden">
-          <figure class="w-full shrink-0 snap-start" aria-label="Position">
-            <div class="relative">
-              <video src="/video/sgd-position.mp4"
-                     poster="/img/sgd-position-poster.jpg"
-                     data-poster="/img/sgd-position-poster.jpg"
-                     controls preload="none" playsinline
-                     class="w-full border border-gray-800 bg-black"></video>
-
-              <button type="button" data-demo-play aria-label="Play this demo"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
-                             bg-black/70 text-gray-100 flex items-center justify-center
-                             transition duration-200 hover:border-white hover:bg-black/90
-                             hover:text-white">
-                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
-                     aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
-              One sound, one point, moved around the room between takes — front, behind, to either side, overhead,
-              close and far. Nothing is panned: each position is binauralized against the room, so the source stays
-              outside your head and the direction is heard rather than inferred from a level difference.
-            </figcaption>
-          </figure>
-
-          <figure class="w-full shrink-0 snap-start" aria-label="Movement">
-            <div class="relative">
-              <video src="/video/sgd-movement.mp4"
-                     data-poster="/img/sgd-movement-poster.jpg"
-                     controls preload="none" playsinline
-                     class="w-full border border-gray-800 bg-black"></video>
-
-              <button type="button" data-demo-play aria-label="Play this demo"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
-                             bg-black/70 text-gray-100 flex items-center justify-center
-                             transition duration-200 hover:border-white hover:bg-black/90
-                             hover:text-white">
-                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
-                     aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
-              The same sound set in motion along a handful of plain paths — straight across from left to right, out
-              and back, around a square, down a zigzag — and then the motion curve bent so the source rushes through
-              one stretch of the path and lingers over the next.
-            </figcaption>
-          </figure>
-
-          <figure class="w-full shrink-0 snap-start" aria-label="Stereo">
-            <div class="relative">
-              <video src="/video/sgd-stereo.mp4"
-                     data-poster="/img/sgd-stereo-poster.jpg"
-                     controls preload="none" playsinline
-                     class="w-full border border-gray-800 bg-black"></video>
-
-              <button type="button" data-demo-play aria-label="Play this demo"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
-                             bg-black/70 text-gray-100 flex items-center justify-center
-                             transition duration-200 hover:border-white hover:bg-black/90
-                             hover:text-white">
-                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
-                     aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
-              A stereo file is placed as two sources rather than one, and the width envelope under the room says
-              where each channel sits at every moment. The same marching band is played five ways: the pair stepped
-              apart, left and right exchanged, the stage opened gradually from a point to its full width, the pair
-              pushed apart by distance, and spread front to back around you.
-            </figcaption>
-          </figure>
-
-          <figure class="w-full shrink-0 snap-start" aria-label="Sync">
-            <div class="relative">
-              <video src="/video/sgd-sync.mp4"
-                     data-poster="/img/sgd-sync-poster.jpg"
-                     controls preload="none" playsinline
-                     class="w-full border border-gray-800 bg-black"></video>
-
-              <button type="button" data-demo-play aria-label="Play this demo"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
-                             bg-black/70 text-gray-100 flex items-center justify-center
-                             transition duration-200 hover:border-white hover:bg-black/90
-                             hover:text-white">
-                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
-                     aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
-              The sample's waveform is painted along the trajectory, so every event in the file has a visible place on
-              the path. Line a transient up with a corner and the hit lands exactly there — the sound and the space
-              it moves through are edited as one thing, by eye.
-            </figcaption>
-          </figure>
-
-          <figure class="w-full shrink-0 snap-start" aria-label="Ideas">
-            <div class="relative">
-              <video src="/video/sgd-ideas.mp4"
-                     data-poster="/img/sgd-ideas-poster.jpg"
-                     controls preload="none" playsinline
-                     class="w-full border border-gray-800 bg-black"></video>
-
-              <button type="button" data-demo-play aria-label="Play this demo"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
-                             bg-black/70 text-gray-100 flex items-center justify-center
-                             transition duration-200 hover:border-white hover:bg-black/90
-                             hover:text-white">
-                <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
-                     aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
-              A handful of sketches of what the thing is actually for: a siren crossing the room, footsteps circling
-              behind you, a whisper arriving at one ear, dogs somewhere off in the dark, a marching band passing by.
-              Each one is a sound, a path and a key.
-            </figcaption>
-          </figure>
-      </div>
+      <DemoCarousel
+        previousLabel="Previous demo"
+        nextLabel="Next demo"
+        playLabel="Play this demo"
+        demos={[
+          {
+            slug: 'position',
+            label: 'Position',
+            caption: `One sound, one point, moved around the room between takes — front, behind, to either side,
+              overhead, close and far. Nothing is panned: each position is binauralized against the room, so the
+              source stays outside your head and the direction is heard rather than inferred from a level
+              difference.`,
+          },
+          {
+            slug: 'movement',
+            label: 'Movement',
+            caption: `The same sound set in motion along a handful of plain paths — straight across from left to
+              right, out and back, around a square, down a zigzag — and then the motion curve bent so the source
+              rushes through one stretch of the path and lingers over the next.`,
+          },
+          {
+            slug: 'stereo',
+            label: 'Stereo',
+            caption: `A stereo file is placed as two sources rather than one, and the width envelope under the
+              room says where each channel sits at every moment. The same marching band is played five ways: the
+              pair stepped apart, left and right exchanged, the stage opened gradually from a point to its full
+              width, the pair pushed apart by distance, and spread front to back around you.`,
+          },
+          {
+            slug: 'sync',
+            label: 'Sync',
+            caption: `The sample's waveform is painted along the trajectory, so every event in the file has a
+              visible place on the path. Line a transient up with a corner and the hit lands exactly there — the
+              sound and the space it moves through are edited as one thing, by eye.`,
+          },
+          {
+            slug: 'ideas',
+            label: 'Ideas',
+            caption: `A handful of sketches of what the thing is actually for: a siren crossing the room,
+              footsteps circling behind you, a whisper arriving at one ear, dogs somewhere off in the dark, a
+              marching band passing by. Each one is a sound, a path and a key.`,
+          },
+        ]}
+      />
     </section>
 
     <!-- ── DOWNLOAD ───────────────────────────────────────────────── -->
@@ -506,118 +371,6 @@ import Layout from '../layouts/Layout.astro';
 
   </main>
 
-  <footer class="border-t border-gray-900 text-center text-gray-400 text-xs py-10 tracking-widest uppercase">
-    <p>
-      <a href="/about" class="text-gray-300 hover:text-white transition-colors">About</a>
-      <span class="text-gray-500 mx-2">·</span>
-      <a href="/about#impressum" class="text-gray-300 hover:text-white transition-colors">Impressum</a>
-      <span class="text-gray-500 mx-2">·</span>
-      <a href="/licensing" class="text-gray-300 hover:text-white transition-colors">Licensing</a>
-      <span class="text-gray-500 mx-2">·</span>
-      <a href="/privacy" class="text-gray-300 hover:text-white transition-colors">Privacy</a>
-    </p>
-    <p class="mt-3">&copy; 2026 Radical Process. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // The demos share a single frame: a track that scrolls one clip at a time,
-    // with the tab strip above it serving as both label and position marker.
-    const track = document.getElementById('demo-track');
-    const slides = Array.from(track.children);
-    const tabs = Array.from(document.querySelectorAll('#demos [data-demo-tab]'));
-    const previous = document.querySelector('#demos [data-demo-nav="prev"]');
-    const next = document.querySelector('#demos [data-demo-nav="next"]');
-
-    const currentIndex = () => Math.round(track.scrollLeft / track.clientWidth);
-
-    // Poster frames are heavy, so a slide only takes its own once it is the one
-    // on show or the one after it. Four unseen frames cost nothing on arrival.
-    const primePoster = (index) => {
-      const slide = slides[index];
-      if (!slide)
-      {
-        return;
-      }
-
-      const video = slide.querySelector('video');
-      if (!video.getAttribute('poster'))
-      {
-        video.setAttribute('poster', video.dataset.poster);
-      }
-    };
-
-    // Whatever moved the track — a tab, an arrow, a swipe — everything that
-    // follows from the new position is settled in one place.
-    const settle = () => {
-      const index = currentIndex();
-
-      tabs.forEach((tab, position) => {
-        tab.setAttribute('aria-current', position === index ? 'true' : 'false');
-      });
-
-      // A clip scrolled out of the frame keeps playing otherwise, heard but not
-      // seen, which is the one thing a single-clip carousel must not allow.
-      slides.forEach((slide, position) => {
-        if (position !== index)
-        {
-          slide.querySelector('video').pause();
-        }
-      });
-
-      previous.disabled = index === 0;
-      next.disabled = index === slides.length - 1;
-
-      primePoster(index);
-      primePoster(index + 1);
-    };
-
-    // The native control bar puts its play button in a corner, small; each clip
-    // gets a large one in the middle of the frame that steps aside once the
-    // clip is running and comes back the moment it stops.
-    slides.forEach((slide) => {
-      const video = slide.querySelector('video');
-      const play = slide.querySelector('[data-demo-play]');
-
-      play.addEventListener('click', () => video.play());
-
-      const show = (visible) => {
-        play.classList.toggle('opacity-0', !visible);
-        play.classList.toggle('pointer-events-none', !visible);
-      };
-
-      video.addEventListener('play', () => show(false));
-      video.addEventListener('pause', () => show(true));
-      video.addEventListener('ended', () => show(true));
-    });
-
-    const goTo = (index) => {
-      const target = Math.max(0, Math.min(slides.length - 1, index));
-      track.scrollTo({ left: track.clientWidth * target, behavior: 'smooth' });
-    };
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => goTo(index));
-    });
-
-    previous.addEventListener('click', () => goTo(currentIndex() - 1));
-    next.addEventListener('click', () => goTo(currentIndex() + 1));
-
-    // Scrolling reports continuously; the position only matters once it stops.
-    let settling;
-    track.addEventListener('scroll', () => {
-      clearTimeout(settling);
-      settling = setTimeout(settle, 120);
-    });
-
-    // A resize changes what a slide's width means, so the track is put back on
-    // a whole slide rather than left parked between two.
-    let resizing;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizing);
-      resizing = setTimeout(() => goTo(currentIndex()), 150);
-    });
-
-    settle();
-  </script>
+  <SiteFooter lang="en" current="home" />
 
 </Layout>

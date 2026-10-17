@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+
+// A reference translation of /privacy. Whenever the English policy changes,
+// change this page with it and bring the date along.
+
+const lastUpdated = '2026年9月12日';
+---
+
+<Layout
+  title="プライバシーポリシー — Radical Process"
+  description="Radical Process とそのプラグインがデータをどう扱うか — ライセンス、トライアルの確認、ウェブサイトのホスティング、そしてあなたの権利について（Datenschutzerklärung）。"
+>
+
+  <SiteHeader lang="ja" />
+
+  <main class="max-w-4xl mx-auto px-6 pb-20">
+
+    <section class="pt-10 mb-16">
+      <h1 class="text-5xl sm:text-6xl font-black tracking-tight mb-3">プライバシー</h1>
+      <p class="text-gray-400 text-sm tracking-wide uppercase">
+        Datenschutzerklärung &nbsp;·&nbsp; 最終更新日 {lastUpdated}
+      </p>
+    </section>
+
+    <div class="max-w-2xl space-y-14">
+
+      <!-- ── TRANSLATION NOTE ─────────────────────────────────────── -->
+      <p class="text-gray-400 text-sm leading-relaxed border border-gray-800 px-5 py-4">
+        この日本語版は参考のための翻訳です。内容に相違がある場合は、<a href="/privacy" hreflang="en"
+           class="text-gray-300 underline underline-offset-4 decoration-gray-500 hover:text-white transition-colors">英語版</a>が優先されます。
+         </p>
+
+      <!-- ── SUMMARY ──────────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">概要</h2>
+        <p class="text-gray-300 leading-relaxed">
+          私たちのプラグインには、テレメトリーも、アクセス解析も、利用状況の追跡も一切含まれていません。プラグインがネットワークに接続するのはライセンスのアクティベーションのときだけで、それもあなた自身が開始した場合に限られます。私たちのライセンスサーバーは何も保存しません — データベースも、あなたのデータのログもありません。このサイトは Cookie を使用せず、アクセス解析も行いません。
+        </p>
+      </section>
+
+      <!-- ── WEBSITE HOSTING ──────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">このウェブサイト</h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          このサイトは静的サイトです。Cookie を使用せず、第三者のフォントやスクリプトを埋め込まず、いかなる種類のアクセス解析や追跡も行いません。
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          EN / JP の切り替えで言語を選ぶと、次回もその言語でサイトが開くよう、その選択がブラウザのローカルストレージに保存されます。この情報があなたの端末の外に送られることはありません。
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          このサイトは Cloudflare, Inc.（101 Townsend St., San Francisco, CA 94107, USA）がホスティングしています。技術上必要なため、Cloudflare は各リクエストの接続データ — IP アドレス、リクエストされたページ、リクエストの時刻、お使いの端末が通知するブラウザとオペレーティングシステムを含む — を、ページを配信し、サービスを攻撃から守るために処理します。
+        </p>
+        <p class="text-gray-300 leading-relaxed">
+          法的根拠：GDPR 第6条1項(f) — 安全かつ確実に配信されるウェブサイトに対する私たちの正当な利益。米国へのデータ移転は、EU–US データプライバシーフレームワークに関する欧州委員会の十分性認定、および標準契約条項によって保護されています。
+        </p>
+      </section>
+
+      <!-- ── PLUGIN: NO PHONE HOME ────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">プラグインは勝手に通信しません</h2>
+        <p class="text-gray-300 leading-relaxed">
+          SGD に含まれるネットワーク接続はただひとつ、ライセンスのアクティベーションだけです。それも、ライセンスキーの入力やトライアルの開始によって、あなたが自ら開始した場合に限られます。テレメトリー、アクセス解析、利用状況の追跡、アップデートの確認など、それ以外のサーバーとの通信は一切ありません。一度アクティベートされると、プラグインはライセンスを<strong class="font-medium text-white">オフライン</strong>で検証し、私たちに接続することは二度とありません。
+        </p>
+      </section>
+
+      <!-- ── LICENSE ACTIVATION ───────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">ライセンスのアクティベーション</h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          ライセンスキーを入力すると、プラグインは<code class="text-gray-400 text-sm">https://license.radical-process.com/activate</code>に次の情報を送信します。
+        </p>
+        <ul class="text-gray-300 leading-relaxed mb-4 space-y-1 list-disc pl-5 marker:text-gray-400">
+          <li>入力されたライセンスキー</li>
+          <li>プラグインの製品識別子（例：<code class="text-gray-400 text-sm">SGD</code>）</li>
+        </ul>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          私たちのサーバーはライセンスキーを Lemon Squeezy に渡して検証し、購入時に入力された名前とメールアドレスを受け取ります。これらを使って暗号署名付きのライセンスファイルを生成し、プラグインに返します。
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          <strong class="font-medium text-white">サーバーは何も保存しません。</strong>データベースも、あなたのデータのログもありません — 名前とメールアドレスはリクエストを通過するだけで、私たちが保持することはありません。技術上必要なため、ホスティングプロバイダーの Cloudflare は、リクエストを配信し攻撃から守る目的で、リクエストの接続メタデータ（IP アドレスを含む）を処理します。
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">法的根拠：GDPR 第6条1項(b)（ライセンス契約の履行）。</p>
+      </section>
+
+      <!-- ── FREE TRIAL ───────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">無料トライアル</h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          トライアルを開始すると、プラグインは製品識別子だけを<code class="text-gray-400 text-sm">https://license.radical-process.com/trial</code>に送信します。<strong class="font-medium text-white">個人データは一切送信されません</strong> —
+          名前もメールアドレスも、登録もありません。サーバーは有効期限付きの署名済みトライアルライセンスファイルを返します。Cloudflare の接続メタデータについては、上記と同じことが当てはまります。
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">法的根拠：GDPR 第6条1項(b)。</p>
+      </section>
+
+      <!-- ── LOCAL STORAGE ────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">
+          あなたのコンピューターに保存されるデータ
+        </h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          <strong class="font-medium text-white">ライセンスファイル。</strong>アクティベーション後、署名付きのライセンスファイルが、お使いのオペレーティングシステムの標準的なアプリケーションサポートの場所に保存されます。このファイルには、購入時の名前とメールアドレス、製品名、そしてトライアルの場合は有効期限が含まれます。プラグイン内では「Licensed to …」として表示されます。
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          <strong class="font-medium text-white">トライアルマーカー。</strong>ファイルを削除するだけでトライアル期間をリセットできないよう、署名付きのトライアルライセンスはシステム上の複数の場所に書き込まれ、欠けたコピーはプラグインの実行時に復元されます。これらのマーカーには、トライアルの有効期限と、仮の名前とメールアドレス（「Trial User」、<code class="text-gray-400 text-sm">trial@user</code>）が含まれます — あなたの個人データは含まれず、あなたやあなたのコンピューターを特定するものは何もありません。
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          <strong class="font-medium text-white">これらのトライアルマーカーは、SGD をアンインストールしても意図的に削除されません。</strong>削除されてしまうと、再インストールするたびに何度でもトライアル期間が得られてしまうためです。システムから削除したい場合は support at radical-process.com までご連絡ください。削除の手順をお送りします。
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          この端末への保存は、あなたが明示的に求めたライセンスまたはトライアルを提供するために厳密に必要なものです（TDDDG 第25条2項2号）。分析や追跡には使用されず、トライアルの場合は個人データを含まず、私たちに送信されることもありません。
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          保存期間：上記のものはすべて、あなたが削除するまでコンピューター上に残ります。私たちはその写しを保持していません。
+        </p>
+      </section>
+
+      <!-- ── PURCHASE ─────────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">購入</h2>
+        <p class="text-gray-300 leading-relaxed">
+          購入は、Merchant of Record（販売者）である Lemon Squeezy が処理します。支払いデータと請求情報を処理するのは私たちではなく Lemon Squeezy です。私たちが受け取るのはライセンスキーに紐づく名前とメールアドレスだけで、それもアクティベーションの時点に限られます。Lemon Squeezy のプライバシーポリシーをご覧ください：<a href="https://www.lemonsqueezy.com/privacy" rel="noopener noreferrer" target="_blank"
+             class="text-gray-400 underline underline-offset-4 decoration-gray-500 hover:text-white transition-colors">lemonsqueezy.com/privacy</a>
+        </p>
+      </section>
+
+      <!-- ── YOUR RIGHTS ──────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">あなたの権利</h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          GDPR に基づき、あなたには次の権利があります。私たちがあなたに関する個人データを処理しているかどうかの確認を求め、処理している場合はそのデータにアクセスする権利（第15条）、不正確なデータを訂正させる権利（第16条）、データを消去させる権利（第17条）、処理を制限させる権利（第18条）、データをポータブルな形式で受け取る権利（第20条）、そして私たちの正当な利益に基づく処理に異議を唱える権利（第21条）。同意に基づく処理については、いつでも将来に向かってその同意を撤回できます。
+        </p>
+        <p class="text-gray-300 leading-relaxed">
+          これらの権利を行使するには、support at radical-process.com までご連絡ください。なお、上記のとおり私たちは顧客データのデータベースを運用していません。ライセンスのアクティベーションの瞬間を除いて、あなたに関する個人データを保持していないため、ほとんどの場合、アクセスや消去の請求には、まさにそのことをお伝えする形で回答することになります。
+        </p>
+      </section>
+
+      <!-- ── SUPERVISORY AUTHORITY ────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">苦情を申し立てる権利</h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          あなたには、監督機関に苦情を申し立てる権利があります（GDPR 第77条）。特に、あなたの居住地、勤務地、または違反が疑われる場所の加盟国の監督機関に申し立てることができます。私たちを管轄する監督機関は次のとおりです。
+        </p>
+        <address class="text-gray-300 leading-relaxed not-italic">
+          Landesbeauftragte für Datenschutz und Informationsfreiheit<br />
+          Nordrhein-Westfalen<br />
+          Kavalleriestraße 2–4<br />
+          40213 Düsseldorf<br />
+          Germany<br />
+          <a href="https://www.ldi.nrw.de" rel="noopener noreferrer" target="_blank"
+             class="text-gray-400 underline underline-offset-4 decoration-gray-500 hover:text-white transition-colors">ldi.nrw.de</a>
+        </address>
+      </section>
+
+      <!-- ── CHANGES ──────────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">このポリシーの変更</h2>
+        <p class="text-gray-300 leading-relaxed">
+          製品やその背後にあるサービスが変わったとき — たとえば、プラグインにサーバーと通信する機能が加わった場合 —
+          このポリシーを更新します。このページ上部の日付は、常に最新の版を示しています。
+        </p>
+      </section>
+
+      <!-- ── CONTROLLER ───────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-gray-400 mb-4">管理者</h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          ここに記載した処理について、GDPR 第4条7項にいう責任を負う管理者は Radical Process です。正式な氏名と郵送先住所は<a href="/ja/about#impressum"
+             class="text-gray-400 underline underline-offset-4 decoration-gray-500 hover:text-white transition-colors">運営者情報（Impressum）</a>に記載しています。
+           </p>
+        <p class="text-gray-300 leading-relaxed">連絡先：support at radical-process.com</p>
+        <p class="text-gray-400 text-sm leading-relaxed mt-4">私たちはデータ保護責任者の選任義務を負っておらず、選任もしていません。</p>
+      </section>
+
+    </div>
+  </main>
+
+  <SiteFooter lang="ja" current="privacy" />
+
+</Layout>
