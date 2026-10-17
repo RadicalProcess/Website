@@ -1,0 +1,48 @@
+---
+import { pathIn, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const choices: { lang: Lang; label: string; name: string }[] = [
+  { lang: 'en', label: 'EN', name: 'English' },
+  { lang: 'ja', label: 'JP', name: '日本語' },
+];
+---
+
+<nav class="absolute top-5 right-6 text-xs tracking-[0.25em] uppercase"
+     aria-label={lang === 'ja' ? '言語' : 'Language'}>
+  {choices.map((choice, index) => (
+    <>
+      {index > 0 && <span class="text-gray-600 mx-1" aria-hidden="true">/</span>}
+      {choice.lang === lang
+        ? <span class="text-white" aria-current="true" title={choice.name}>{choice.label}</span>
+        : <a href={pathIn(Astro.url.pathname, choice.lang)} hreflang={choice.lang} lang={choice.lang}
+             title={choice.name} aria-label={choice.name} data-lang-choice={choice.lang}
+             class="text-gray-400 hover:text-white transition-colors">{choice.label}</a>}
+    </>
+  ))}
+</nav>
+
+<script>
+  // Picking a language by hand overrides the guess made from the browser's
+  // language (see Layout), on this visit and the next. The section in view
+  // travels along, so switching never throws the reader back to the top.
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-choice]').forEach((choice) => {
+    choice.addEventListener('click', () => {
+      try
+      {
+        localStorage.setItem('lang', choice.dataset.langChoice ?? '');
+      }
+      catch
+      {
+        // Storage can be blocked; the switch still works for this page.
+      }
+
+      choice.hash = location.hash;
+    });
+  });
+</script>

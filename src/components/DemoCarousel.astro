@@ -1,0 +1,172 @@
+---
+interface Demo {
+  // Names the clip and its poster frame: /video/sgd-<slug>.mp4.
+  slug: string;
+  label: string;
+  caption: string;
+}
+
+interface Props {
+  demos: Demo[];
+  previousLabel: string;
+  nextLabel: string;
+  playLabel: string;
+}
+
+const { demos, previousLabel, nextLabel, playLabel } = Astro.props;
+---
+
+<div class="flex items-end justify-between gap-4 border-b border-gray-900 mb-5">
+  <div class="flex gap-4 sm:gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    {demos.map((demo) => (
+      <button type="button" data-demo-tab
+              class="shrink-0 pb-3 -mb-px border-b-2 border-transparent text-[11px] tracking-[0.15em]
+                     sm:tracking-[0.2em] uppercase text-gray-400 hover:text-gray-200 transition-colors
+                     aria-[current=true]:text-white aria-[current=true]:border-gray-400">{demo.label}</button>
+    ))}
+  </div>
+
+  <div class="flex shrink-0 gap-1 pb-2">
+    <button type="button" data-demo-nav="prev" aria-label={previousLabel}
+            class="w-8 h-8 border border-gray-500 text-gray-300 hover:text-white hover:border-gray-300
+                   transition-colors disabled:opacity-25 disabled:hover:text-gray-300
+                   disabled:hover:border-gray-500">&#8592;</button>
+    <button type="button" data-demo-nav="next" aria-label={nextLabel}
+            class="w-8 h-8 border border-gray-500 text-gray-300 hover:text-white hover:border-gray-300
+                   transition-colors disabled:opacity-25 disabled:hover:text-gray-300
+                   disabled:hover:border-gray-500">&#8594;</button>
+  </div>
+</div>
+
+<div id="demo-track"
+     class="flex overflow-x-auto snap-x snap-mandatory [scrollbar-width:none]
+            [&::-webkit-scrollbar]:hidden">
+  {demos.map((demo, index) => (
+    <figure class="w-full shrink-0 snap-start" aria-label={demo.label}>
+      <div class="relative">
+        {/* Only the first slide takes its poster up front; see primePoster. */}
+        <video src={`/video/sgd-${demo.slug}.mp4`}
+               poster={index === 0 ? `/img/sgd-${demo.slug}-poster.jpg` : undefined}
+               data-poster={`/img/sgd-${demo.slug}-poster.jpg`}
+               controls preload="none" playsinline
+               class="w-full border border-gray-800 bg-black"></video>
+
+        <button type="button" data-demo-play aria-label={playLabel}
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       w-28 h-20 sm:w-36 sm:h-24 rounded-2xl border border-gray-500
+                       bg-black/70 text-gray-100 flex items-center justify-center
+                       transition duration-200 hover:border-white hover:bg-black/90
+                       hover:text-white">
+          <svg class="w-12 h-12 sm:w-16 sm:h-16 ml-1" viewBox="0 0 24 24" fill="currentColor"
+               aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+      </div>
+      <figcaption class="text-gray-400 text-sm leading-relaxed mt-4">
+        {demo.caption}
+      </figcaption>
+    </figure>
+  ))}
+</div>
+
+<script>
+  // The demos share a single frame: a track that scrolls one clip at a time,
+  // with the tab strip above it serving as both label and position marker.
+  const track = document.getElementById('demo-track');
+  const slides = Array.from(track.children);
+  const tabs = Array.from(document.querySelectorAll('#demos [data-demo-tab]'));
+  const previous = document.querySelector('#demos [data-demo-nav="prev"]');
+  const next = document.querySelector('#demos [data-demo-nav="next"]');
+
+  const currentIndex = () => Math.round(track.scrollLeft / track.clientWidth);
+
+  // Poster frames are heavy, so a slide only takes its own once it is the one
+  // on show or the one after it. Four unseen frames cost nothing on arrival.
+  const primePoster = (index) => {
+    const slide = slides[index];
+    if (!slide)
+    {
+      return;
+    }
+
+    const video = slide.querySelector('video');
+    if (!video.getAttribute('poster'))
+    {
+      video.setAttribute('poster', video.dataset.poster);
+    }
+  };
+
+  // Whatever moved the track — a tab, an arrow, a swipe — everything that
+  // follows from the new position is settled in one place.
+  const settle = () => {
+    const index = currentIndex();
+
+    tabs.forEach((tab, position) => {
+      tab.setAttribute('aria-current', position === index ? 'true' : 'false');
+    });
+
+    // A clip scrolled out of the frame keeps playing otherwise, heard but not
+    // seen, which is the one thing a single-clip carousel must not allow.
+    slides.forEach((slide, position) => {
+      if (position !== index)
+      {
+        slide.querySelector('video').pause();
+      }
+    });
+
+    previous.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+
+    primePoster(index);
+    primePoster(index + 1);
+  };
+
+  // The native control bar puts its play button in a corner, small; each clip
+  // gets a large one in the middle of the frame that steps aside once the
+  // clip is running and comes back the moment it stops.
+  slides.forEach((slide) => {
+    const video = slide.querySelector('video');
+    const play = slide.querySelector('[data-demo-play]');
+
+    play.addEventListener('click', () => video.play());
+
+    const show = (visible) => {
+      play.classList.toggle('opacity-0', !visible);
+      play.classList.toggle('pointer-events-none', !visible);
+    };
+
+    video.addEventListener('play', () => show(false));
+    video.addEventListener('pause', () => show(true));
+    video.addEventListener('ended', () => show(true));
+  });
+
+  const goTo = (index) => {
+    const target = Math.max(0, Math.min(slides.length - 1, index));
+    track.scrollTo({ left: track.clientWidth * target, behavior: 'smooth' });
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => goTo(index));
+  });
+
+  previous.addEventListener('click', () => goTo(currentIndex() - 1));
+  next.addEventListener('click', () => goTo(currentIndex() + 1));
+
+  // Scrolling reports continuously; the position only matters once it stops.
+  let settling;
+  track.addEventListener('scroll', () => {
+    clearTimeout(settling);
+    settling = setTimeout(settle, 120);
+  });
+
+  // A resize changes what a slide's width means, so the track is put back on
+  // a whole slide rather than left parked between two.
+  let resizing;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizing);
+    resizing = setTimeout(() => goTo(currentIndex()), 150);
+  });
+
+  settle();
+</script>

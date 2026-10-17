@@ -1,0 +1,31 @@
+---
+import LanguageSwitch from './LanguageSwitch.astro';
+import { pathIn, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  // The home page is where the logo would lead, so there it is not a link.
+  isHome?: boolean;
+}
+
+const { lang, isHome = false } = Astro.props;
+
+const home = pathIn('/', lang);
+---
+
+<header class="relative max-w-4xl mx-auto px-6 pt-14 pb-4">
+  <LanguageSwitch lang={lang} />
+  <div class="flex items-center gap-4">
+    {isHome
+      ? <img src="/img/logo.png" alt="Radical Process" class="h-9 w-auto shrink-0" />
+      : <a href={home} class="shrink-0"><img src="/img/logo.png" alt="Radical Process" class="h-9 w-auto" /></a>}
+    <p class="text-xs uppercase text-gray-400">
+      {isHome
+        ? <span class="tracking-[0.45em] text-gray-200">Radical Process</span>
+        : <a href={home} class="tracking-[0.45em] text-gray-200 hover:text-white transition-colors">Radical Process</a>}
+      <span class="text-gray-400 tracking-[0.25em]">
+        &nbsp;—&nbsp; Unapologetically niche, unapologetically deep
+      </span>
+    </p>
+  </div>
+</header>

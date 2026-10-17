@@ -36,5 +36,12 @@
 }
 
 @theme {
-  --font-sans: 'Roboto', sans-serif;
+  --font-sans: 'Roboto', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Yu Gothic', Meiryo, 'Noto Sans JP', sans-serif;
+}
+
+/* Roboto has no Japanese glyphs; Japanese text falls through to the system's
+   own Japanese face, and breaks lines between phrases rather than mid-word. */
+:lang(ja) {
+  word-break: auto-phrase;
+  line-break: strict;
 }

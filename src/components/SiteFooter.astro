@@ -1,0 +1,37 @@
+---
+import { pathIn, type Lang } from '../i18n';
+
+type Page = 'home' | 'about' | 'licensing' | 'privacy';
+
+interface Props {
+  lang: Lang;
+  // The page being shown is left out of its own footer.
+  current: Page;
+}
+
+const { lang, current } = Astro.props;
+
+const labels = lang === 'ja'
+  ? { home: 'ホーム', about: '概要', impressum: '運営者情報', licensing: 'ライセンス', privacy: 'プライバシー' }
+  : { home: 'Home', about: 'About', impressum: 'Impressum', licensing: 'Licensing', privacy: 'Privacy' };
+
+const links = [
+  { page: 'home', href: pathIn('/', lang), label: labels.home },
+  { page: 'about', href: pathIn('/about', lang), label: labels.about },
+  { page: null, href: current === 'about' ? '#impressum' : pathIn('/about#impressum', lang), label: labels.impressum },
+  { page: 'licensing', href: pathIn('/licensing', lang), label: labels.licensing },
+  { page: 'privacy', href: pathIn('/privacy', lang), label: labels.privacy },
+].filter((item) => item.page !== current);
+---
+
+<footer class="border-t border-gray-900 text-center text-gray-400 text-xs py-10 tracking-widest uppercase">
+  <p>
+    {links.map((item, index) => (
+      <>
+        {index > 0 && <span class="text-gray-500 mx-2">·</span>}
+        <a href={item.href} class="text-gray-300 hover:text-white transition-colors">{item.label}</a>
+      </>
+    ))}
+  </p>
+  <p class="mt-3">&copy; 2026 Radical Process. All rights reserved.</p>
+</footer>

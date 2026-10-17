@@ -1,0 +1,313 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DemoCarousel from '../../components/DemoCarousel.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+---
+
+<Layout
+  title="Radical Process"
+  description="SGD（Spatial Gesture Designer）は、サウンドファイルを、リスナーを囲む仮想空間の中を動く「ジェスチャー」に変えるバイノーラルプラグインです。macOS / Windows 対応、VST3 / AU / スタンドアロン。"
+>
+
+  <SiteHeader lang="ja" isHome />
+
+  <!-- ── SGD ────────────────────────────────────────────────────── -->
+  <main class="max-w-4xl mx-auto px-6 pb-20">
+
+    <section class="pt-10">
+      <div class="mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-5">
+        <div>
+          <h1 class="text-5xl sm:text-6xl font-black tracking-tighter mb-1">SGD</h1>
+          <p class="text-gray-400 text-sm tracking-wide uppercase">
+            Spatial Gesture Designer &nbsp;·&nbsp; VST3 / AU / スタンドアロン<span class="block mt-1">macOS / Windows</span>
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#download"
+             class="inline-block border border-gray-500 hover:border-gray-300 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase">
+            ダウンロード
+          </a>
+          <a href="https://radical-process.com/buy/sgd"
+             class="inline-block border border-gray-500 hover:border-gray-300 px-6 py-4 text-gray-200 hover:text-white transition-colors text-sm tracking-[0.25em] uppercase">
+            ライセンスを購入
+            <span class="flex gap-x-1.5 mt-2 text-xs tracking-normal normal-case whitespace-nowrap">
+              <s class="text-gray-400"><span class="sr-only">通常価格 </span>€129</s>
+              <span class="text-white font-medium">€89</span>
+              <span class="text-gray-400">発売記念割引</span>
+            </span>
+            <span class="block mt-1 text-xs tracking-normal normal-case text-gray-400">
+              コード <code class="font-mono text-white select-all">AXNDG4OA</code> を入力
+            </span>
+            <span class="block mt-1 text-xs tracking-normal normal-case text-gray-400">
+              <time datetime="2026-11-18">11月18日</time>まで
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="mb-10">
+        <video src="/video/sgd-digest.mp4"
+               poster="/img/sgd-digest-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"
+               aria-label="SGD の音声なしの画面収録。空間の床にジェスチャーの軌道を描き、高さのカーブを整え、ジェスチャーが空間を飛び交う様子を外側から眺める。"
+               class="w-full border border-gray-800"></video>
+        <figcaption class="text-gray-400 text-sm mt-3">
+          エディットビューでは、すべての操作をひとつの画面で行えます。左にジェスチャーのリスト、中央に空間のトップビュー、その下に三種のカーブエディター、下端にはそれらすべてを演奏するキーボードが並びます。動画では、音の軌跡を描き、カーブを整え、空間の大きさを決めてから、オブザーブビューに切り替えています。
+        </figcaption>
+      </figure>
+
+      <p class="text-gray-300 leading-relaxed mb-6">
+        SGD は、<em class="not-italic text-white">ジェスチャー</em>を自在にデザインするプラグインです。ジェスチャーとは、リスナーを取り囲む仮想空間の中を駆け巡る音の動きのことです。リスナーを真上から見下ろしたトップビューで軌跡を描き、エレベーションカーブで高さを与え、モーションカーブで動きに緩急をつけたら、MIDI
+        キーに割り当てます。キーを押せば、音はただ鳴るだけでなく、あなたの周りを回り、頭上を越え、耳元をかすめて空間を駆けめぐります。
+      </p>
+
+      <p class="text-gray-300 leading-relaxed mb-6">
+        SGD は単なるパンニングとは違います。空間の物理モデルに基づいてすべてのジェスチャーをバイノーラル処理するため、ヘッドホンで聴くと、音が頭の外にはっきりと定位します。距離感も、空気感も、壁の反射も、ドップラー効果も、すべてはあなたが設計した空間から自然に生まれるもの。重い空間演算はバックグラウンドであらかじめ済ませておくので、再生時の負荷はほとんどかかりません。それに加えて、各ジェスチャーには、ジェスチャー同士の音のバランスを詳細に調整するためにゲイン、3バンド EQ、共有ルームリバーブへのセンドを備えた専用のミキサーストリップが付いています。
+      </p>
+
+      <p class="text-gray-300 leading-relaxed mb-16">
+        SGD の開発者は、ZKM カールスルーエや Dear Reality（のちに Sennheiser が買収）に在籍し、10年以上にわたって空間オーディオの開発に携わってきました。
+      </p>
+
+      <!-- ── PITCHES ──────────────────────────────────────────────── -->
+      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-14 mb-16">
+
+        <div>
+          <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+            <img src="/img/sgd-gesture.png" alt="ジェスチャーリスト。各行にキーのドロップダウン、ジェスチャー名、サウンドファイルとその長さ、軌道のサムネイルが並ぶ。"
+                 class="max-h-full max-w-full object-contain" />
+          </div>
+          <h3 class="font-medium mb-1">音と、軌道と、キー</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            この3つを組み合わせたものがジェスチャーです。リストには、再生するサウンドファイル、音の軌道のサムネイル、対応するキーの3つがまとめて表示されます。ドロップダウンで別のキーを選べば、割り当てもそのまま移ります。ひとつの空間には最大128個のジェスチャーを置けます。それぞれに固有の色をアサインしておくことができます。
+          </p>
+        </div>
+
+        <div>
+          <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+            <img src="/img/sgd-key.png" alt="キーボードストリップ。C4、D4、E4 と黒鍵の上の色付きの点が、各キーに割り当てられたジェスチャーを示す。"
+                 class="max-h-full max-w-full object-contain" />
+          </div>
+          <h3 class="font-medium mb-1">空間を楽器のように演奏する</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            すべてのジェスチャーは MIDI キーに割り当てられ、キーボード上にそれぞれの色で表示されます。DAW やスタンドアロンアプリケーションから、空間の動きをライブで演奏できます。
+          </p>
+        </div>
+
+        <div>
+          <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+            <img src="/img/sgd-trajectory.png" alt="軌道エディター。リスナーの周りをループする軌道に沿って、サンプルの波形が描かれている。"
+                 class="max-h-full max-w-full object-contain" />
+          </div>
+          <h3 class="font-medium mb-1">動きを描き、時間を操る</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            軌道に沿って波形が描かれるので、サンプルのどの部分がどこで鳴るのかがひと目でわかります。モーションカーブを使えば、音を加速させたり、減速させたり、完全に止めたり、逆向きに動かしたりすることもできます。
+          </p>
+        </div>
+
+        <div>
+          <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+            <img src="/img/sgd-elevation.png" alt="エレベーションエディター。リスナーの耳の高さの上下に置かれたブレークポイントが、軌道の高さを決める。"
+                 class="max-h-full max-w-full object-contain" />
+          </div>
+          <h3 class="font-medium mb-1">床から持ち上げ、大きく広げる</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            ひとつのエディターで3本のカーブを編集できます。エレベーションカーブでは、軌道を頭上へ持ち上げたり、足元へ下ろしたりできます。ウィズ（Width）カーブでは、ステレオファイルの左右のチャンネルを翼のように広げ、一点から広がりのある響きへ開いたり、また閉じたりできます。
+          </p>
+        </div>
+
+        <div>
+          <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+            <img src="/img/sgd-render.png" alt="レンダーパネル。直接音と1次・2次・3次反射、ドップラー量のノブ、バックグラウンドレンダリングの進行バー。"
+                 class="max-h-full max-w-full object-contain" />
+          </div>
+          <h3 class="font-medium mb-1">頭の外に定位する音</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            距離、空気吸収、最大3次までの壁の反射を再現する本格的なバイノーラルレンダリングです。反射の次数を上げるほど、密度が高く鮮やかな空間になります。動く音源のドップラーシフトの量も、好みに合わせて調整できます。
+          </p>
+        </div>
+
+        <div>
+          <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+            <img src="/img/sgd-room.png" alt="ルーム設定ダイアログ。中央にリスナーがいるワイヤーフレームの空間、メートル単位のサイズ、壁の素材の設定。"
+                 class="max-h-full max-w-full object-contain" />
+          </div>
+          <h3 class="font-medium mb-1">リアルな空間を、自由に設計</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            空間の幅・高さ・奥行きをメートル単位で指定し、壁の素材（吸音、ダンピング、拡散、RT60）を設定します。サイズを変えたり、コンクリートをカーペットに替えたりすると、反射もリバーブも、すべてのジェスチャーも自動的に更新されます。空間はサンプルを含むひとつのフォルダーとして保存されます。
+          </p>
+        </div>
+
+        <div>
+          <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+            <img src="/img/sgd-mix.png" alt="ジェスチャーごとのミックスストリップ。ゲイン、Low・Mid・High の EQ ノブ、共有ルームリバーブへのセンド。"
+                 class="max-h-full max-w-full object-contain" />
+          </div>
+          <h3 class="font-medium mb-1">ジェスチャーごとに専用のストリップ</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            ジェスチャーごとに、ゲイン、3バンド EQ、共有ルームリバーブへのセンドを備えています。一度レンダリングしたものを再びレンダリングすることはないので、空間を開き直せばすぐに使えます。カーブを調整したときも、作業を続けているあいだに、そのジェスチャーだけがバックグラウンドで再レンダリングされます。
+          </p>
+        </div>
+
+        <div>
+          <div class="border border-gray-800 bg-black h-52 flex items-center justify-center p-3 mb-4">
+            <img src="/img/sgd-trim.png" alt="トリムダイアログ。ハイライトされた範囲と、両端にフェードハンドルのあるステレオ波形。"
+                 class="max-h-full max-w-full object-contain" />
+          </div>
+          <h3 class="font-medium mb-1">飛ばすのは、必要な部分だけ</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            波形の上をドラッグして使いたい部分を選び、三角形のハンドルでフェードを付け、範囲全体をファイル上でスライドさせます。ジェスチャーと軌道上の波形は、選んだ範囲に合わせて自動的に描き直されます。
+          </p>
+        </div>
+
+      </div>
+
+      <figure>
+        <img src="/img/sgd-observe.png" alt="SGD のオブザーブビュー。ワイヤーフレームの箱として外側から見た空間の中で、名前の付いた4つのジェスチャーがリスナーの周りに色付きの軌跡を描いている。"
+             class="w-full border border-gray-800" />
+        <figcaption class="text-gray-400 text-sm mt-3">
+          オブザーブビューでは、実寸の空間を外側から眺めることができます。中央にいるのがリスナーです。鳴っているジェスチャーはそれぞれの色と名前で軌跡を描き、音量に合わせて膨らんだり消えたりする光の球が付いて動きます。
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ── DEMOS ──────────────────────────────────────────────────── -->
+    <section id="demos" class="mt-20 border-t border-gray-900 pt-12">
+      <h2 class="text-xs tracking-[0.3em] uppercase text-gray-300 mb-6">デモ</h2>
+
+      <p class="text-gray-300 leading-relaxed mb-6">
+        SGD の画面収録を5本用意しました。どの動画も、SGD のバイノーラル出力をそのまま音声にしています。矢印で切り替えられ、再生ボタンを押すまで音は鳴りません。同時に再生されるのは1本だけです。
+      </p>
+
+      <div class="border border-gray-600 px-5 py-4 mb-10 flex items-start gap-4 sm:gap-5">
+        <svg class="shrink-0 w-7 h-7 sm:w-8 sm:h-8 text-gray-300 mt-0.5" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+        </svg>
+        <div>
+          <p class="text-xs tracking-[0.25em] uppercase text-gray-300 mb-2">まずヘッドホンを着けてください</p>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            これらの動画はバイノーラル音声です。左右の耳にそれぞれ別の信号が届くことで、はじめて立体的に聞こえます。スピーカーで再生すると両方の信号が両耳に届いて手がかりが打ち消し合い、音はスピーカーのある位置から聞こえるだけになってしまいます。ヘッドホンで聴けば、同じ音源が空間の中や背後、頭上、耳元を通り過ぎていくのがわかります。
+          </p>
+        </div>
+      </div>
+
+      <DemoCarousel
+        previousLabel="前のデモ"
+        nextLabel="次のデモ"
+        playLabel="このデモを再生"
+        demos={[
+          {
+            slug: 'position',
+            label: '位置',
+            caption: `ひとつの音を一点に置き、テイクごとに前、後ろ、左右、頭上、近く、遠くへと位置を変えています。パンニングは使っていません。それぞれの位置を空間に合わせてバイノーラル処理しているため、音源は頭の外に定位し、方向は音量差からの推測ではなく、実際の方向として聞こえます。`,
+          },
+          {
+            slug: 'movement',
+            label: '動き',
+            caption: `同じ音を、左から右へまっすぐ横切る、行って戻る、四角形を一周する、ジグザグに進むといったシンプルな軌道で動かしています。最後はモーションカーブを曲げて、軌道のある区間は一気に駆け抜け、次の区間ではゆっくり留まるようにしています。`,
+          },
+          {
+            slug: 'stereo',
+            label: 'ステレオ',
+            caption: `ステレオファイルは2つの音源として配置され、空間の下にあるウィズ（Width）カーブで、各チャンネルの位置を時間ごとに決められます。この動画では、同じマーチングバンドを5通りで再生しています。2つの音源を段階的に離す、左右を入れ替える、一点から全幅までステージを徐々に開く、距離によって押し広げる、リスナーを囲むように前後に広げる、の5つです。`,
+          },
+          {
+            slug: 'sync',
+            label: '同期',
+            caption: `軌道に沿ってサンプルの波形が描かれるので、ファイル内のどの音が軌道上のどこで鳴るのかが目で見てわかります。トランジェントを軌道の角に合わせれば、アタックがちょうどその位置で鳴ります。音と空間を、ひとつのものとして目で見ながら編集できます。`,
+          },
+          {
+            slug: 'ideas',
+            label: 'アイデア',
+            caption: `SGD の使い道を示すスケッチをいくつか集めました。空間を横切るサイレン、背後を回る足音、片耳に届くささやき、暗闇のどこかで吠える犬たち、通り過ぎるマーチングバンド。どれも、音と軌道とキーだけで作られています。`,
+          },
+        ]}
+      />
+    </section>
+
+    <!-- ── DOWNLOAD ───────────────────────────────────────────────── -->
+    <section id="download" class="scroll-mt-8 mt-20 border-t border-gray-900 pt-12">
+      <h2 class="text-xs tracking-[0.3em] uppercase text-gray-300 mb-6">ダウンロード</h2>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="https://download.radical-process.com/mac/SGD-latest.zip"
+           class="block border border-gray-500 hover:border-gray-300 px-6 py-5 text-gray-200 hover:text-white transition-colors">
+          <span class="block text-sm tracking-[0.25em] uppercase">macOS 版をダウンロード</span>
+          <span class="block text-gray-400 text-xs mt-2 tracking-wide uppercase">
+            Apple Silicon &nbsp;·&nbsp; VST3 / AU / スタンドアロン
+          </span>
+        </a>
+
+        <a href="https://download.radical-process.com/win/SGD-latest.zip"
+           class="block border border-gray-500 hover:border-gray-300 px-6 py-5 text-gray-200 hover:text-white transition-colors">
+          <span class="block text-sm tracking-[0.25em] uppercase">Windows 版をダウンロード</span>
+          <span class="block text-gray-400 text-xs mt-2 tracking-wide uppercase">
+            64-bit &nbsp;·&nbsp; VST3 / スタンドアロン
+          </span>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 mt-4">
+        <p class="text-gray-400 text-xs tracking-wide uppercase">
+          14日間の無料トライアル &nbsp;·&nbsp; 全機能を利用可能 &nbsp;·&nbsp; 登録不要
+        </p>
+        <a href="/manual/sgd/"
+           class="text-gray-300 hover:text-white text-xs tracking-[0.25em] uppercase underline underline-offset-4 decoration-gray-500 transition-colors">ユーザーマニュアル（英語）&rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SPECS ──────────────────────────────────────────────────── -->
+    <section class="mt-20 border-t border-gray-900 pt-12">
+      <h2 class="text-xs tracking-[0.3em] uppercase text-gray-300 mb-6">仕様</h2>
+
+      <dl class="text-sm border-t border-gray-900 mb-6">
+        <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
+          <dt class="w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5">対応 OS</dt>
+          <dd class="text-gray-300">
+            macOS 11（Big Sur）以降、Apple Silicon（ARM）のみ<span class="block">Windows 10 以降、64-bit</span>
+          </dd>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
+          <dt class="w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5">フォーマット</dt>
+          <dd class="text-gray-300">
+            VST3、AU、スタンドアロン<span class="block text-gray-400 text-xs mt-1">AU は macOS のみ</span>
+            <span class="block text-gray-400 text-xs mt-1">AAX（Pro Tools）は v2.0 で対応予定</span>
+          </dd>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
+          <dt class="w-40 shrink-0 text-gray-400 uppercase tracking-[0.2em] text-xs pt-0.5">サンプルレート</dt>
+          <dd class="text-gray-300">44.1、48、96 kHz のみ</dd>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-gray-900 py-3">
+          <dt class="w-40 shrink-0 text-gray-500 uppercase tracking-[0.2em] text-xs pt-0.5">動作確認済みホスト</dt>
+          <dd class="text-gray-300">Logic Pro、Cubase、REAPER</dd>
+        </div>
+      </dl>
+
+      <p class="text-gray-400 text-sm leading-relaxed">
+        macOS 版は macOS 11（Big Sur）以降が必要で、Apple Silicon（ARM）でのみ動作します。Intel 版はなく、Rosetta 経由も含め Intel Mac では動作しません。セッションのサンプルレートは 44.1、48、96 kHz のいずれかである必要があり、それ以外には対応していません。Windows 版は Windows 10 以降（64-bit）が必要で、VST3 とスタンドアロンで提供されます。
+      </p>
+    </section>
+
+    <!-- ── TRIAL & LICENSE ───────────────────────────────────── -->
+    <section class="mt-20 border-t border-gray-900 pt-12">
+      <h2 class="text-xs tracking-[0.3em] uppercase text-gray-300 mb-6">トライアルとライセンス</h2>
+
+      <p class="text-gray-300 leading-relaxed mb-6">
+        SGD は<strong class="font-medium text-white">14日間の無料トライアル</strong>から始められます。トライアル版は製品版とまったく同じで、期間中はすべての機能を制限なく使えます。透かしも書き出しの制限もありません。開始はワンクリックで、名前やメールアドレスの入力、ユーザー登録も必要ありません。
+      </p>
+
+      <p class="text-gray-400 text-sm leading-relaxed">
+        14日間が過ぎても SGD は起動し、保存した空間も開けますが、有効なライセンスキーを入力するまでプラグインは<strong class="font-medium text-gray-300">ミュート</strong>され、音声は出力されません。キーはトライアルの終了前でも終了後でも、いつでも入力でき、入力すればすぐに音が戻ります。1つのキーで、お持ちのすべてのマシンで使えます。詳しくは<a href="/ja/licensing" class="text-gray-300 underline underline-offset-4 decoration-gray-500 hover:text-white transition-colors">ライセンスの仕組み</a>をご覧ください。
+      </p>
+    </section>
+
+  </main>
+
+  <SiteFooter lang="ja" current="home" />
+
+</Layout>

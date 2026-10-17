@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { isJapanesePath, pathIn } from '../i18n';
 
 interface Props {
   title?: string;
@@ -9,13 +10,62 @@ interface Props {
 
 const { title = 'Radical Process', description, image = '/img/og-image.jpg' } = Astro.props;
 
+const lang = isJapanesePath(Astro.url.pathname) ? 'ja' : 'en';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const englishUrl = new URL(pathIn(Astro.url.pathname, 'en'), Astro.site);
+const japaneseUrl = new URL(pathIn(Astro.url.pathname, 'ja'), Astro.site);
+const japanesePath = japaneseUrl.pathname;
 const imageUrl = new URL(image, Astro.site);
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
+    {lang === 'en' && (
+      <script is:inline define:vars={{ japanesePath }}>
+        // A first visit lands on English; a reader whose browser puts Japanese
+        // ahead of English is sent on to the Japanese page before anything is
+        // drawn. A language picked with the switch always wins, and so does
+        // moving around inside the site, which is a choice of language too.
+        // The Japanese pages never redirect, so a link to one always holds.
+        let chosen = null;
+        try
+        {
+          chosen = localStorage.getItem('lang');
+        }
+        catch
+        {
+          // Storage can be blocked; fall back to the browser's language.
+        }
+
+        const isFromThisSite = () =>
+        {
+          try
+          {
+            return new URL(document.referrer).origin === location.origin;
+          }
+          catch
+          {
+            return false;
+          }
+        };
+
+        const prefersJapanese = () =>
+        {
+          const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+          const preferred = languages
+            .map((language) => String(language).toLowerCase().split('-')[0])
+            .find((language) => language === 'en' || language === 'ja');
+          return preferred === 'ja';
+        };
+
+        const goJapanese = chosen ? chosen === 'ja' : !isFromThisSite() && prefersJapanese();
+        if (goJapanese)
+        {
+          location.replace(japanesePath + location.search + location.hash);
+        }
+      </script>
+    )}
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -24,6 +74,9 @@ const imageUrl = new URL(image, Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="ja" href={japaneseUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Radical Process" />
@@ -33,7 +86,8 @@ const imageUrl = new URL(image, Astro.site);
     <meta property="og:image" content={imageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={lang === 'ja' ? 'ja_JP' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'ja' ? 'en_US' : 'ja_JP'} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
